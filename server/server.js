@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const generateOTP = require('otp-generator');
+const otpGenerator = require('otp-generator');
 
 const app = express();
 const PORT = process.env.SERVER_PORT || 3001;
@@ -99,8 +99,7 @@ app.post('/api/send-otp', async (req, res) => {
     const { email } = req.body;
 
     // Generate a 6-digit OTP
-   
-    const otp = generateOTP({ digits: 6, alphabets: false, upperCase: false, specialChars: false });
+    const otp = otpGenerator.generate({ digits: 6, alphabets: false, upperCase: false, specialChars: false });
 
     // Save OTP in the database
     const verificationData = new EmailVerification({ email, otp });
