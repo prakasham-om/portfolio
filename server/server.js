@@ -100,7 +100,7 @@ app.post('/api/send-otp', async (req, res) => {
 
     // Generate a 6-digit OTP
     const otp = otpGenerator.generate({ digits: 6, alphabets: false, upperCase: false, specialChars: false });
-
+ 
     // Save OTP in the database
     const verificationData = new EmailVerification({ email, otp });
     await verificationData.save();
