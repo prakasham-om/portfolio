@@ -1,13 +1,18 @@
 import React from 'react';
-import { animated } from 'react-spring';
 import { FaNode, FaJs, FaReact } from 'react-icons/fa';
 import { DiMongodb } from 'react-icons/di';
 import profile from '../assets/profile.jpeg';
+import cvPdf from '../assets/your_cv.pdf'; // Replace with the actual path to your CV PDF file
 
 function About() {
   const downloadCV = () => {
-    // Your download CV logic here
-    console.log('Downloading CV...');
+    const link = document.createElement('a');
+    link.href = cvPdf;
+    link.target = '_blank';
+    link.download = 'prakash_cv.pdf'; // Update with the desired PDF file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -20,6 +25,7 @@ function About() {
             alt="Your Name"
             className="bg-orange-500 rounded-full md:rounded w-20 h-20 md:w-40 md:h-40 md:mr-4 mb-4 md:mb-0"
             onContextMenu={(e) => e.preventDefault()}
+            draggable="false"
           />
           <div
             style={{
