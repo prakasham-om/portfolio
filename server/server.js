@@ -55,7 +55,7 @@ app.post('/api/contact', async (req, res) => {
     const verificationRecord = await EmailVerification.findOne({
       email,
       otp,
-      timestamp: { $gte: new Date(Date.now() - 2 * 60 * 1000) }, // Adjust the time window as needed (2 minutes in this example)
+      timestamp: { $gte: new Date(Date.now() - 5 * 60 * 1000) }, // Adjust the time window as needed (5 minutes in this example)
     });
 
     if (!verificationRecord) {
@@ -99,6 +99,7 @@ app.post('/api/send-otp', async (req, res) => {
     const { email } = req.body;
 
     // Generate a 6-digit OTP
+   
     const otp = generateOTP({ digits: 6, alphabets: false, upperCase: false, specialChars: false });
 
     // Save OTP in the database
