@@ -6,8 +6,13 @@ function Contact() {
     email: '',
     message: '',
   });
+  const [otpFormData, setOtpFormData] = useState({
+    email: '',
+    otp: '',
+  });
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -16,43 +21,81 @@ function Contact() {
     });
   };
 
+  const handleOtpChange = (e) => {
+    setOtpFormData({
+      ...otpFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSendOtp = async () => {
+    try {
+      const response = await fetch('https://portfolio-b0xq.onrender.com/api/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: formData.email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('OTP sent successfully:', data.message);
+        setOtpSent(true);
+      } else {
+        console.error('Error sending OTP:', data.message);
+      }
+    } catch (error) {
+      console.error('Error sending OTP:', error.message);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setLoading(true); // Set loading to true when submitting the form
-
+  
+    setLoading(true);
+  
     try {
       const response = await fetch('https://portfolio-b0xq.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, otp: otpFormData.otp }),
       });
-
+  
       if (response.ok) {
         setSubmitSuccess(true);
+        
+        // Reset the form data
         setFormData({
           name: '',
           email: '',
           message: '',
         });
-
+  
+        // Reset the OTP form data
+        setOtpFormData({
+          email: '',
+          otp: '',
+        });
+  
         // Automatically hide the success notification and reset loading state after 2000 milliseconds (2 seconds)
         setTimeout(() => {
           setSubmitSuccess(false);
           setLoading(false);
         }, 2000);
-
       } else {
         console.error('Error sending message:', response.statusText);
-        setLoading(false); // Reset loading state if there's an error
+        setLoading(false);
       }
     } catch (error) {
       console.error('Error sending message:', error.message);
-      setLoading(false); // Reset loading state if there's an error
+      setLoading(false);
     }
   };
+  
 
   return (
     <section id="contact" className="p-8">
@@ -61,22 +104,6 @@ function Contact() {
         Have a question or want to work together? Feel free to reach out using the form below or through my email at your.email@example.com.
       </p>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4 ">
-          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-            Your Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            className="border rounded w-full py-2 px-3"
-            placeholder="John Doe"
-            required
-            onChange={handleChange}
-            autoComplete='autoComplete'
-          />
-        </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
             Your Email
@@ -90,7 +117,52 @@ function Contact() {
             placeholder="john.doe@example.com"
             required
             onChange={handleChange}
-            autoComplete='autoComplete'
+            autoComplete='autocomplete'
+          />
+        </div>
+
+        {formData.email && !otpSent && (
+          <button
+            type="button"
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+            onClick={handleSendOtp}
+          >
+            Send OTP
+          </button>
+        )}
+
+        {otpSent && (
+          <div className="mb-4">
+            <label htmlFor="otp" className="block text-gray-700 font-bold mb-2">
+              Enter OTP
+            </label>
+            <input
+              type="text"
+              id="otp"
+              name="otp"
+              value={otpFormData.otp}
+              className="border rounded w-full py-2 px-3"
+              placeholder="Enter OTP"
+              required
+              onChange={handleOtpChange}
+            />
+          </div>
+        )}
+
+        <div className="mb-4 ">
+          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+            Your Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            className="border rounded w-full py-2 px-3"
+            placeholder="John Doe"
+            required
+            onChange={handleChange}
+            autoComplete='autocomplete'
           />
         </div>
         <div className="mb-4">
@@ -106,13 +178,13 @@ function Contact() {
             placeholder="How can I assist you?"
             required
             onChange={handleChange}
-            autoComplete='autoComplete'
+            autoComplete='autocomplete'
           />
         </div>
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
-          disabled={loading} // Disable the button while loading
+          disabled={loading}
         >
           {loading ? 'Sending...' : 'Send Message'}
         </button>
