@@ -34,7 +34,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 const yourEmailAddress = 'your.email@example.com';
-
+app.get('/',(req,res)=>{
+  res.json({messahe:"hello"})
+})
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message } = req.body;
