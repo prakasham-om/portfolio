@@ -53,9 +53,9 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     setLoading(true);
-  
+
     try {
       const response = await fetch('https://portfolio-b0xq.onrender.com/api/contact', {
         method: 'POST',
@@ -64,23 +64,15 @@ function Contact() {
         },
         body: JSON.stringify({ ...formData, otp: otpFormData.otp }),
       });
-  
+
       if (response.ok) {
         setSubmitSuccess(true);
-        
-        // Reset the form data
         setFormData({
           name: '',
           email: '',
           message: '',
         });
-  
-        // Reset the OTP form data
-        setOtpFormData({
-          email: '',
-          otp: '',
-        });
-  
+
         // Automatically hide the success notification and reset loading state after 2000 milliseconds (2 seconds)
         setTimeout(() => {
           setSubmitSuccess(false);
@@ -95,7 +87,6 @@ function Contact() {
       setLoading(false);
     }
   };
-  
 
   return (
     <section id="contact" className="p-8">
