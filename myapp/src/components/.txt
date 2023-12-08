@@ -1,0 +1,42 @@
+
+
+// src/components/Footer.js
+import React from 'react';
+import { animated } from 'react-spring';
+
+const Footer = () => {
+  return (
+    <animated.footer className="bg-gray-800 text-white py-4">
+      <div className="container mx-auto text-center">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+      </div>
+    </animated.footer>
+  );
+};
+
+export default Footer;
+
+// src/App.js
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
+import Header from './components/Header';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+
+const App = () => {
+  const fadeIn = useSpring({ opacity: 1, from: { opacity: 0 } });
+
+  return (
+    <div>
+      <Header />
+      <About style={fadeIn} />
+      <Projects style={fadeIn} />
+      <Contact style={fadeIn} />
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
