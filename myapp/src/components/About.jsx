@@ -28,7 +28,7 @@ function About() {
           src={profile}
           
           alt="Your Name"
-          className="bg-orange-500 rounded-full md:rounded w-20 h-20 md:w-40 md:h-40 md:mr-4 mb-4 md:mb-0"
+          className="bg-orange-500 rounded-full md:rounded w-20 h-20 md:w-20 md:h-20 md:mr-4 mb-4 md:mb-0"
         />
         <div>
           <p className="text-gray-700">
