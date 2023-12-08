@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { animated } from 'react-spring';
 import { FaNode, FaJs, FaReact} from 'react-icons/fa';
@@ -73,5 +72,3 @@ function About() {
     </section>
   );
 }
-
-export default About;
