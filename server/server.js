@@ -1,207 +1,128 @@
-import React, { useState } from 'react';
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+const generateOTP = require('generate-otp');
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [otpFormData, setOtpFormData] = useState({
-    email: '',
-    otp: '',
-  });
-  const [responseMessage, setResponseMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [otpSent, setOtpSent] = useState(false);
+const app = express();
+const PORT = process.env.SERVER_PORT || 3001;
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+dotenv.config();
+
+app.use(express.json());
+app.use(cors());
+
+// Connect to MongoDB
+mongoose.connect(process.env.DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Define a mongoose model for messages
+const Message = mongoose.model('Message', {
+  name: String,
+  email: String,
+  message: String,
+  timestamp: { type: Date, default: Date.now },
+});
+
+// Define a mongoose model for email verification
+const EmailVerification = mongoose.model('EmailVerification', {
+  email: String,
+  otp: String,
+  timestamp: { type: Date, default: Date.now },
+});
+
+// Nodemailer setup
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_FROM,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+
+app.get('/', (req, res) => {
+  res.json({ message: 'hello' });
+});
+
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, message, otp } = req.body;
+
+    // Check if the provided OTP matches the one stored in the database
+    const verificationRecord = await EmailVerification.findOne({
+      email,
+      otp,
+      timestamp: { $gte: new Date(Date.now() - 2 * 60 * 1000) }, // Adjust the time window as needed (2 minutes in this example)
     });
-  };
 
-  const handleOtpChange = (e) => {
-    setOtpFormData({
-      ...otpFormData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSendOtp = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/api/send-otp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: formData.email }),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        console.log('OTP sent successfully:', data.message);
-        setOtpSent(true);
-        setResponseMessage({ success: true, message: data.message });
-  
-        // Reset the OTP form data
-        setOtpFormData({
-          email: '',
-          otp: '',
-        });
-      } else {
-        console.error('Error sending OTP:', data.message);
-        setResponseMessage({ success: false, message: data.message });
-      }
-    } catch (error) {
-      console.error('Error sending OTP:', error.message);
-      setResponseMessage({ success: false, message: 'Internal Server Error' });
+    if (!verificationRecord) {
+      return res.status(400).json({ success: false, message: 'Invalid or expired OTP' });
     }
-  };
-  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    // If the user has not sent a message in the past 24 hours, save the new message
+    const newMessage = new Message({ name, email, message });
+    await newMessage.save();
 
-    setLoading(true);
+    // Remove the used OTP record from the database
+    await EmailVerification.deleteOne({ email, otp });
 
-    try {
-      const response = await fetch('http://localhost:3001/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...formData, otp: otpFormData.otp }),
-      });
+    const userMailOptions = {
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: 'Thank you for your message!',
+      text: `Dear ${name},\n\nThank you for reaching out. We have received your message and will get back to you soon.\n\nBest regards,\n Prakash Chandra Sahoo`,
+    };
 
-      const data = await response.json();
+    // Send email notification to you
+    const adminMailOptions = {
+      from: process.env.EMAIL_FROM,
+      to: process.env.USER_EMAIL,
+      subject: 'New Contact Form Submission',
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
 
-      if (response.ok) {
-        setResponseMessage({ success: true, message: data.message });
-        setFormData({
-          name: '',
-          email: '',
-          message: '',
-        });
+    await transporter.sendMail(userMailOptions);
+    await transporter.sendMail(adminMailOptions);
 
-        // Automatically hide the success notification and reset loading state after 2000 milliseconds (2 seconds)
-        setTimeout(() => {
-          setResponseMessage(null);
-          setLoading(false);
-        }, 2000);
-      } else {
-        console.error('Error sending message:', response.statusText);
-        setResponseMessage({ success: false, message: data.message || 'Internal Server Error' });
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error('Error sending message:', error.message);
-      setResponseMessage({ success: false, message: 'Internal Server Error' });
-      setLoading(false);
-    }
-  };
+    res.status(201).json({ success: true, message: 'Message sent successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+});
 
-  return (
-    <section id="contact" className="p-8">
-      <h2 className="text-xl font-bold mb-4">Contact Me</h2>
-      <p className="mb-4">
-        Have a question or want to work together? Feel free to reach out using the form below or through my email at your.email@example.com.
-      </p>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-            Your Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            className="border rounded w-full py-2 px-3"
-            placeholder="john.doe@example.com"
-            required
-            onChange={handleChange}
-            autoComplete='autocomplete'
-          />
-        </div>
+app.post('/api/send-otp', async (req, res) => {
+  try {
+    const { email } = req.body;
 
-        {formData.email && !otpSent && (
-          <button
-            type="button"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
-            onClick={handleSendOtp}
-          >
-            Send OTP
-          </button>
-        )}
+    // Generate a 6-digit OTP
+    const otp = generateOTP({ digits: 6, alphabets: false, upperCase: false, specialChars: false });
 
-        {otpSent && (
-          <div className="mb-4">
-            <label htmlFor="otp" className="block text-gray-700 font-bold mb-2">
-              Enter OTP
-            </label>
-            <input
-              type="text"
-              id="otp"
-              name="otp"
-              value={otpFormData.otp}
-              className="border rounded w-full py-2 px-3"
-              placeholder="Enter OTP"
-              required
-              onChange={handleOtpChange}
-            />
-          </div>
-        )}
+    // Save OTP in the database
+    const verificationData = new EmailVerification({ email, otp });
+    await verificationData.save();
 
-        <div className="mb-4 ">
-          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-            Your Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            className="border rounded w-full py-2 px-3"
-            placeholder="John Doe"
-            required
-            onChange={handleChange}
-            autoComplete='autocomplete'
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
-            Your Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            rows="4"
-            className="border rounded w-full py-2 px-3"
-            placeholder="How can I assist you?"
-            required
-            onChange={handleChange}
-            autoComplete='autocomplete'
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
-          disabled={loading}
-        >
-          {loading ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
+    // Send OTP to user's email
+    const userMailOptions = {
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: 'Email Verification OTP',
+      text: `Your OTP for email verification is: ${otp}`,
+    };
 
-      {responseMessage && (
-        <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 text-white rounded shadow ${responseMessage.success ? 'bg-green-500' : 'bg-red-500'}`}>
-          {responseMessage.message}
-        </div>
-      )}
-    </section>
-  );
-}
+    await transporter.sendMail(userMailOptions);
 
-export default Contact;
+    res.status(200).json({ success: true, message: 'OTP sent successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
