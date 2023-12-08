@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
-    "build": "npm i",
-    "postinstall": "npm install"
+    "build": "npm i"
   },
   "author": "",
   "license": "ISC",
