@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const generateOTP = require('generate-otp');
+const generateOTP = require('otp-generator');
 
 const app = express();
 const PORT = process.env.SERVER_PORT || 3001;
