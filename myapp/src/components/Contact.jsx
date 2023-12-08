@@ -74,6 +74,7 @@ function Contact() {
             placeholder="John Doe"
             required
             onChange={handleChange}
+            autoComplete='autoComplete'
           />
         </div>
         <div className="mb-4">
@@ -89,6 +90,7 @@ function Contact() {
             placeholder="john.doe@example.com"
             required
             onChange={handleChange}
+            autoComplete='autoComplete'
           />
         </div>
         <div className="mb-4">
@@ -104,6 +106,7 @@ function Contact() {
             placeholder="How can I assist you?"
             required
             onChange={handleChange}
+            autoComplete='autoComplete'
           />
         </div>
         <button
