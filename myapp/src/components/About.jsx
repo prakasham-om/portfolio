@@ -23,12 +23,11 @@ function About() {
     
     >
       <h2 className="text-2xl font-bold mb-4">About Me</h2>
-      <div className="md:flex ">
+      <div className="md:flex items-center md:gap-5 ">
         <img
           src={profile}
-          
           alt="Your Name"
-          className="bg-orange-500 rounded-full md:rounded w-20 h-20 md:w-20 md:h-20 md:mr-4 mb-4 md:mb-0"
+          className="bg-orange-500 rounded-full md:rounded w-20 h-20 md:w-40 md:h-40 md:mr-4 mb-4 md:mb-0"
         />
         <div>
           <p className="text-gray-700">
