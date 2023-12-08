@@ -7,6 +7,7 @@ function Contact() {
     message: '',
   });
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -17,6 +18,8 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true); // Set loading to true when submitting the form
 
     try {
       const response = await fetch('https://portfolio-b0xq.onrender.com/api/contact', {
@@ -35,16 +38,19 @@ function Contact() {
           message: '',
         });
 
-        // Automatically hide the success notification after 2000 milliseconds (2 seconds)
+        // Automatically hide the success notification and reset loading state after 2000 milliseconds (2 seconds)
         setTimeout(() => {
           setSubmitSuccess(false);
+          setLoading(false);
         }, 2000);
 
       } else {
         console.error('Error sending message:', response.statusText);
+        setLoading(false); // Reset loading state if there's an error
       }
     } catch (error) {
       console.error('Error sending message:', error.message);
+      setLoading(false); // Reset loading state if there's an error
     }
   };
 
@@ -103,8 +109,9 @@ function Contact() {
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+          disabled={loading} // Disable the button while loading
         >
-          Send Message
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
 

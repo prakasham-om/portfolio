@@ -37,9 +37,9 @@ const Header = ({ isOpen, toggleMenu }) => {
                   <li key={index}>
                     <NavLink
                       to={link.to}
-                      exact
+                      exact="true"
                       className="block px-4 py-2 hover:bg-gray-700"
-                      activeClassName="text-yellow-500"
+                      
                     >
                       {link.text}
                     </NavLink>
