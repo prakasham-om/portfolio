@@ -32,7 +32,7 @@ function About() {
         <div>
           <p className="text-gray-700">
             Hello! I'm Prakash Chandra Sahoo, a dedicated software engineer with a
-            Bachelor's in Computer Science (2021). With 1.5 years of hands-on experience,
+            Bachelor's in Computer Science. With 2.4 years of hands-on experience,
             I specialize in React.js, Node.js, MongoDB, JavaScript, HTML, and CSS.
             I excel in solving complex problems, writing efficient code, 
             and collaborating effectively with teams. My journey has equipped me
