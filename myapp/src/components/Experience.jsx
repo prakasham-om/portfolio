@@ -9,7 +9,7 @@ function Experience() {
         <h3 className="text-lg font-bold mb-2">Software Engineer - ENSS TECHNOLOGIES pvt ltd.</h3>
         <p className="text-gray-600">nov 2021 - Present</p>
         <p>
-        As a FullStack Developer specializing in React.js at Greet Lab Company,
+        As a FullStack Developer specializing in React.js at Terralogic Software Solutions deployed by ENSS TECHNOLOGIES PRIVATE LIMITED Company,
          I meticulously design and implement captivating user interfaces, ensuring
           a seamless and delightful user experience and creating immersive and user-friendly web experiences 
           also design lot of API using nodejs and MongoDB
