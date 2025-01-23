@@ -6,8 +6,8 @@ function Experience() {
     <section id="experience" className="p-8">
       <h2 className="text-xl font-bold mb-4">Experience</h2>
       <div className="mb-4">
-        <h3 className="text-lg font-bold mb-2">Software Engineer - Greet lab pvt ltd.</h3>
-        <p className="text-gray-600">july 2022 - Present</p>
+        <h3 className="text-lg font-bold mb-2">Software Engineer - ENSS TECHNOLOGIES pvt ltd.</h3>
+        <p className="text-gray-600">nov 2021 - Present</p>
         <p>
         As a FullStack Developer specializing in React.js at Greet Lab Company,
          I meticulously design and implement captivating user interfaces, ensuring
