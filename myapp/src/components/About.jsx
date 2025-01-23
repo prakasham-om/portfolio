@@ -39,12 +39,12 @@ function About() {
             with a strong analytical mindset and a passion for staying at the FullStack of industry trends.
             Let's connect and explore how I can bring my skills and enthusiasm to your team!
           </p>
-          /*<button
+          { /*<button
             onClick={downloadCV}
             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300 mt-4"
           >
             Download CV
-          </button>*/
+          </button>*/}
         </div> 
        
       </div>
