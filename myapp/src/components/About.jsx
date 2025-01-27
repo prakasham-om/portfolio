@@ -22,7 +22,7 @@ function About() {
     <section id="about" className="p-8 "
     
     >
-      <h2 className="text-2xl font-bold mb-4">About Me</h2>
+      <h2 className="text-2xl font-bold mb-4">Prakash Chandra Sahoo</h2>
       <div className="md:flex items-center md:gap-5 ">
         <img
           src={profile}
