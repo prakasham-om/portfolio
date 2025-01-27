@@ -6,7 +6,7 @@ import profile from '../assets/profile.jpeg';
 
 function About() {
   const downloadCV = () => {
-    const pdfPath = '/your_cv.pdf';
+    const pdfPath = '/prakash.pdf';
     const link = document.createElement('a');
     link.href = pdfPath;
     link.target = '_blank';
