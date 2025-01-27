@@ -39,7 +39,7 @@ function About() {
       </animated.h2>
 
       <div className="md:flex items-center md:gap-10 mb-12">
-        <div className="flex justify-center md:justify-start mb-6 md:mb-0">
+        <div className=" justify-center md:justify-start mb-6 md:mb-0">
           <img
             src={profile}
             alt="Prakash Chandra Sahoo"
