@@ -71,7 +71,7 @@ function About() {
         Thank you for visiting! Feel free to reach out to discuss opportunities or collaborations.
       </animated.p>
 
-      <animated.div style={fadeIn} className="hidden md:block text-lg text-gray-600 mt-[-4rem]">
+      <animated.div style={fadeIn} className="hidden md:block text-lg text-gray-600 mt-4">
         I am always open to new projects, collaborations, and opportunities. Let's connect to create impactful solutions together. With my expertise in full-stack development and cloud technologies like AWS, I am prepared to contribute to cutting-edge projects that challenge my skills and make a real impact. Whether it's optimizing front-end user experiences or designing back-end systems, I'm passionate about delivering excellence.
       </animated.div>
 
