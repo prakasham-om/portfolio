@@ -68,7 +68,7 @@ function About() {
       <FaJs size={40} color="#F7DF1E" />
       <DiMongodb size={40} color="#589636" />
       <FaAws size={40} color="#FF9900"/>
-        <FaAngular/ size={40} color="#FF0000">
+      <FaAngular size={40} color="#FF0000"/>
     </div>
     </section>
   );
