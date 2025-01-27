@@ -43,7 +43,7 @@ function About() {
           <img
             src={profile}
             alt="Prakash Chandra Sahoo"
-            className="w-32 h-32 md:w-48 md:h-48 rounded-full shadow-lg"
+            className="w-32 h-32 md:w-60 md:h-60 rounded-full shadow-lg"
           />
         </div>
 
