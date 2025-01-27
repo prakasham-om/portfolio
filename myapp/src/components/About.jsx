@@ -35,7 +35,7 @@ function About() {
         <img
           src={profile}
           alt="Prakash Chandra Sahoo"
-          className="w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full shadow-xl border-4 border-indigo-500 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          className="w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full md:rounded-none shadow-xl border-4 border-indigo-500 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
         />
       </div>
 
