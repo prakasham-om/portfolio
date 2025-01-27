@@ -1,6 +1,6 @@
 import React from 'react';
 import { animated } from 'react-spring';
-import { FaNode, FaJs, FaReact,FaAws} from 'react-icons/fa';
+import { FaNode, FaJs, FaReact,FaAws,FaAngular} from 'react-icons/fa';
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg'
 
@@ -33,7 +33,7 @@ function About() {
           <p className="text-gray-700">
             Hello! I'm Prakash Chandra Sahoo, a dedicated software engineer with a
             Bachelor's in Computer Science. With 3.3 years of hands-on experience,
-            I specialize in React.js, Node.js,AWS,ANGULAR,MongoDB, JavaScript, HTML, and CSS.
+            I specialize in React.js,Node.js,AWS,ANGULAR,MongoDB,JavaScript,HTML5 and CSS.
             I excel in solving complex problems, writing efficient code, 
             and collaborating effectively with teams. My journey has equipped me
             with a strong analytical mindset and a passion for staying at the FullStack of industry trends.
@@ -68,6 +68,7 @@ function About() {
       <FaJs size={40} color="#F7DF1E" />
       <DiMongodb size={40} color="#589636" />
       <FaAws size={40} color="#FF9900"/>
+        <FaAngular/ size={40} color="#FF0000">
     </div>
     </section>
   );
