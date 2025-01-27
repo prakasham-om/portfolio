@@ -30,43 +30,41 @@ function About() {
   });
 
   return (
-    <section id="about" className="py-16 px-8 md:px-20 bg-gray-50 text-gray-800">
-      <animated.h2
-        style={fadeIn}
-        className="text-4xl font-semibold text-center text-indigo-600 mb-6"
-      >
-        Prakash Chandra Sahoo
-      </animated.h2>
+    <section id="about" className="py-16 px-8 md:px-20 bg-gray-50 text-gray-800 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="flex justify-center mb-6 md:mb-0">
+        <img
+          src={profile}
+          alt="Prakash Chandra Sahoo"
+          className="w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full shadow-xl border-4 border-indigo-500 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+        />
+      </div>
 
-      <div className="md:flex items-center md:gap-10 mb-12">
-    
-          <img
-            src={profile}
-            alt="Prakash Chandra Sahoo"
-            className="w-32 h-32 md:w-56 md:h-56 rounded-full shadow-lg"
-          />
-        
+      <div className="text-center md:text-left">
+        <animated.h2
+          style={fadeIn}
+          className="text-4xl font-semibold text-indigo-600 mb-6"
+        >
+          Prakash Chandra Sahoo
+        </animated.h2>
 
-        <div className="text-center md:text-left">
-          <animated.p style={fadeIn} className="text-lg leading-relaxed text-gray-700 mb-4 md:hidden">
-            I'm Prakash, a passionate software developer with over 3 years of experience in creating robust and scalable applications. I specialize in React, Node.js, Angular, MongoDB, and AWS. With a solid background in both front-end and back-end development, I focus on delivering high-quality, efficient solutions. I am driven by challenges and always eager to enhance my skills to meet evolving technology needs.
-          </animated.p>
+        <animated.p style={fadeIn} className="text-lg leading-relaxed text-gray-700 mb-4 md:hidden">
+          I'm Prakash, a passionate software developer with over 3 years of experience in creating robust and scalable applications. I specialize in React, Node.js, Angular, MongoDB, and AWS. With a solid background in both front-end and back-end development, I focus on delivering high-quality, efficient solutions. I am driven by challenges and always eager to enhance my skills to meet evolving technology needs.
+        </animated.p>
 
-          <animated.p style={fadeIn} className="hidden md:block text-lg leading-relaxed text-gray-700 mb-4">
-            With over 3 years of experience, I specialize in creating dynamic, high-performance web applications. I have strong expertise in **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**. My goal is to craft seamless, efficient, and scalable solutions. I’m constantly learning and adapting to new technologies, and I’m always eager to tackle complex challenges in software development.
-          </animated.p>
+        <animated.p style={fadeIn} className="hidden md:block text-lg leading-relaxed text-gray-700 mb-4">
+          With over 3 years of experience, I specialize in creating dynamic, high-performance web applications. I have strong expertise in **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**. My goal is to craft seamless, efficient, and scalable solutions. I’m constantly learning and adapting to new technologies, and I’m always eager to tackle complex challenges in software development.
+        </animated.p>
 
-          <animated.p style={fadeIn} className="hidden md:block text-lg leading-relaxed text-gray-700 mb-6">
-            Over the years, I’ve built web applications from the ground up and collaborated in team-based environments to deliver solutions that not only meet but exceed business needs. I’m highly skilled at integrating third-party services, developing RESTful APIs, and ensuring optimal performance for both web and mobile applications. I thrive in environments where continuous learning is valued, and I’m always looking for new ways to improve my craft.
-          </animated.p>
+        <animated.p style={fadeIn} className="hidden md:block text-lg leading-relaxed text-gray-700 mb-6">
+          Over the years, I’ve built web applications from the ground up and collaborated in team-based environments to deliver solutions that not only meet but exceed business needs. I’m highly skilled at integrating third-party services, developing RESTful APIs, and ensuring optimal performance for both web and mobile applications. I thrive in environments where continuous learning is valued, and I’m always looking for new ways to improve my craft.
+        </animated.p>
 
-          <button
-            onClick={downloadCV}
-            className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-500 transition duration-300 mt-4 shadow-lg transform hover:scale-105"
-          >
-            Download CV
-          </button>
-        </div>
+        <button
+          onClick={downloadCV}
+          className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-500 transition duration-300 mt-4 shadow-lg transform hover:scale-105"
+        >
+          Download CV
+        </button>
       </div>
 
       <animated.p style={fadeIn} className="text-center text-lg text-gray-600 mt-4 md:hidden">
