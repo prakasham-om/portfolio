@@ -74,7 +74,7 @@ const Header = ({ isOpen, toggleMenu }) => {
         <animated.div style={rainbowAnimation} className="text-3xl font-extrabold flex items-center space-x-3">
           <FaLaptopCode size={28} className="hidden md:flex text-purple-400" />
           <span className="md:flex-grow text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-            |||||||||
+            01010000 01000011
           </span>
         </animated.div>
 
