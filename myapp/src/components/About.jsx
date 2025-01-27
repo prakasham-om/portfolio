@@ -39,13 +39,13 @@ function About() {
       </animated.h2>
 
       <div className="md:flex items-center md:gap-10 mb-12">
-        <div className="flex justify-center md:justify-start mb-6 md:mb-0">
+    
           <img
             src={profile}
             alt="Prakash Chandra Sahoo"
             className="w-32 h-32 md:w-56 md:h-56 rounded-full shadow-lg"
           />
-        </div>
+        
 
         <div className="text-center md:text-left">
           <animated.p style={fadeIn} className="text-lg leading-relaxed text-gray-700 mb-4 md:hidden">
