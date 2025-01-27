@@ -1,4 +1,3 @@
-// Header.js
 import React from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from 'react-icons/ai';
 import { FaLaptopCode } from 'react-icons/fa';
@@ -23,23 +22,26 @@ const Header = ({ isOpen, toggleMenu }) => {
   });
 
   return (
-    <animated.header className="bg-gray-900 text-white py-2 md:py-4 z-50 sticky top-0 ">
-      <div className="px-3 flex justify-between items-center">
-        {/* Text with rainbow animation */}
+    <animated.header className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-700 text-white py-4 md:py-6 z-50 sticky top-0 shadow-lg backdrop-blur-md">
+      <div className="px-6 flex justify-between items-center">
+        {/* Mobile Menu Button */}
         <span className="block md:hidden items-center">
-          <button onClick={toggleMenu} className="p-3 text-white">
+          <button
+            onClick={toggleMenu}
+            className="p-3 text-white hover:text-blue-300 transition duration-300"
+          >
             <AiOutlineMenu size={25} />
           </button>
           {isOpen && (
-            <div className="fixed left-0 w-full text-white z-30 bg-gray-800 bg-opacity-100" onClick={toggleMenu}>
-              <ul className="py-4">
+            <div className="fixed left-0 top-0 w-full text-white z-30 bg-gray-900 bg-opacity-80">
+              <ul className="py-6">
                 {links.map((link, index) => (
                   <li key={index}>
                     <NavLink
                       to={link.to}
                       exact="true"
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      
+                      className="block px-6 py-3 text-lg font-medium hover:bg-blue-500 hover:text-white transition duration-200"
+                      activeClassName="bg-blue-500 text-white"
                     >
                       {link.text}
                     </NavLink>
@@ -50,23 +52,31 @@ const Header = ({ isOpen, toggleMenu }) => {
           )}
         </span>
 
-        <animated.div style={rainbowAnimation} className="text-2xl font-bold flex items-center">
-          <FaLaptopCode size={25} className="hidden md:flex" />
-          <span className="md:flex-grow ">Prakash Chandra Sahoo</span>
+        {/* Animated Title */}
+        <animated.div style={rainbowAnimation} className="text-3xl font-extrabold flex items-center space-x-3">
+          <FaLaptopCode size={28} className="hidden md:flex text-purple-400" />
+          <span className="md:flex-grow text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+            Prakash Chandra Sahoo
+          </span>
         </animated.div>
 
-        {/* Icons */}
-        <div className="flex space-x-4 text-center">
-          <a href="https://github.com/prakasham-om" target="_blank" rel="noopener noreferrer" className="text-white">
-            <AiFillGithub size={30} className="text-gray-700" />
+        {/* Social Icons */}
+        <div className="flex space-x-6 text-center">
+          <a
+            href="https://github.com/prakasham-om"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-300 transition duration-300"
+          >
+            <AiFillGithub size={32} />
           </a>
           <a
             href="https://www.linkedin.com/in/prakash-sahoo-ba3b942a1/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white"
+            className="text-white hover:text-blue-500 transition duration-300"
           >
-            <AiFillLinkedin size={30} className="mr-5 text-blue-700" />
+            <AiFillLinkedin size={32} />
           </a>
         </div>
       </div>
