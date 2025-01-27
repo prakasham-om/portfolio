@@ -30,7 +30,7 @@ function About() {
   });
 
   return (
-    <section id="about" className="py-16 px-8 md:px-20 bg-gray-50 text-gray-800 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section id="about" className="py-16 px-8 md:px-20 bg-gray-50 text-gray-800 min-h-screen grid grid-cols-1 md:grid-cols-1 gap-10">
       <div className="flex justify-center mb-6 md:mb-0">
         <img
           src={profile}
