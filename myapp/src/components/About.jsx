@@ -10,7 +10,7 @@ function About() {
     const link = document.createElement('a');
     link.href = pdfPath;
     link.target = '_blank';
-    link.download = 'PRAKASH_Res.pdf';
+    link.download = 'prakash.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
