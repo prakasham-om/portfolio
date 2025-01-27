@@ -3,10 +3,10 @@ import { animated, useSpring } from 'react-spring';
 import { FaNode, FaJs, FaReact, FaAws, FaAngular } from 'react-icons/fa';
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg';
-
+import resumeM from '../assets/prakash.pdf'
 function About() {
   const downloadCV = () => {
-    const pdfPath = '/prakash.pdf';
+    const pdfPath = resumeM;
     const link = document.createElement('a');
     link.href = pdfPath;
     link.target = '_blank';
