@@ -48,16 +48,7 @@ function About() {
         </div> 
        
       </div>
-      <p className="text-gray-700 mt-5">
-          I'm motivated by the ever-evolving nature of web development and thrive
-         on continuous learning. My problem-solving approach and
-         commitment to excellence drive me to deliver high-quality solutions.
-        </p>
-        <p className="text-gray-700 mt-5">
-        I'm excited about the future
-         of web development and am dedicated to staying ahead by exploring 
-         new technologies and enhancing my skill set.
-
+        <p>
         Thank you for visiting, and feel free to connect with me 
         to discuss exciting opportunities or collaboration
         </p>
