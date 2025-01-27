@@ -1,6 +1,6 @@
 import React from 'react';
 import { animated } from 'react-spring';
-import { FaNode, FaJs, FaReact} from 'react-icons/fa';
+import { FaNode, FaJs, FaReact,FaAws} from 'react-icons/fa';
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg'
 
@@ -67,6 +67,7 @@ function About() {
       <FaNode size={40} color="#8CC84B" />
       <FaJs size={40} color="#F7DF1E" />
       <DiMongodb size={40} color="#589636" />
+      <FaAws size={40} color="#FF9900" ></>
     </div>
     </section>
   );
