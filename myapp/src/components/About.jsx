@@ -39,22 +39,25 @@ function About() {
       </animated.h2>
 
       <div className="md:flex items-center md:gap-10 mb-12">
-        <div className=" justify-center md:justify-start mb-6 md:mb-0">
+        <div className="flex justify-center md:justify-start mb-6 md:mb-0">
           <img
             src={profile}
             alt="Prakash Chandra Sahoo"
-            className="w-32 h-32 md:w-60 md:h-60 rounded-full shadow-lg"
+            className="w-32 h-32 md:w-48 md:h-48 rounded-full shadow-lg"
           />
         </div>
 
         <div className="text-center md:text-left">
-          <animated.p style={fadeIn} className="text-lg leading-relaxed text-gray-700 mb-4">
-            I'm Prakash, a passionate software developer with over 3 years of experience
-            in creating robust and scalable applications. I specialize in React, Node.js, 
-            Angular, MongoDB, and AWS. With a solid background in both front-end and 
-            back-end development, I focus on delivering high-quality, efficient solutions. 
-            I am driven by challenges and always eager to enhance my skills to meet 
-            evolving technology needs.
+          <animated.p style={fadeIn} className="text-lg leading-relaxed text-gray-700 mb-4 md:hidden">
+            I'm Prakash, a passionate software developer with over 3 years of experience in creating robust and scalable applications. I specialize in React, Node.js, Angular, MongoDB, and AWS. With a solid background in both front-end and back-end development, I focus on delivering high-quality, efficient solutions. I am driven by challenges and always eager to enhance my skills to meet evolving technology needs.
+          </animated.p>
+
+          <animated.p style={fadeIn} className="hidden md:block text-lg leading-relaxed text-gray-700 mb-4">
+            With over 3 years of experience, I specialize in creating dynamic, high-performance web applications. I have strong expertise in **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**. My goal is to craft seamless, efficient, and scalable solutions. I’m constantly learning and adapting to new technologies, and I’m always eager to tackle complex challenges in software development.
+          </animated.p>
+
+          <animated.p style={fadeIn} className="hidden md:block text-lg leading-relaxed text-gray-700 mb-6">
+            Over the years, I’ve built web applications from the ground up and collaborated in team-based environments to deliver solutions that not only meet but exceed business needs. I’m highly skilled at integrating third-party services, developing RESTful APIs, and ensuring optimal performance for both web and mobile applications. I thrive in environments where continuous learning is valued, and I’m always looking for new ways to improve my craft.
           </animated.p>
 
           <button
@@ -66,8 +69,12 @@ function About() {
         </div>
       </div>
 
-      <animated.p style={fadeIn} className="text-center text-lg text-gray-600">
-        Thank you for visiting! Feel free to connect with me to discuss exciting opportunities or collaboration.
+      <animated.p style={fadeIn} className="text-center text-lg text-gray-600 mt-4 md:hidden">
+        Thank you for visiting! Feel free to reach out to discuss opportunities or collaborations.
+      </animated.p>
+
+      <animated.p style={fadeIn} className="hidden md:block text-lg text-gray-600 mt-4">
+        I am always open to new projects, collaborations, and opportunities. Let's connect to create impactful solutions together. With my expertise in full-stack development and cloud technologies like AWS, I am prepared to contribute to cutting-edge projects that challenge my skills and make a real impact. Whether it's optimizing front-end user experiences or designing back-end systems, I'm passionate about delivering excellence.
       </animated.p>
 
       <animated.div
