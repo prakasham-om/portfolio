@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from 'react-icons/ai';
 import { FaLaptopCode } from 'react-icons/fa';
 import { animated, useSpring } from 'react-spring';
@@ -6,6 +6,16 @@ import { NavLink } from 'react-router-dom';
 import links from './link.js';
 
 const Header = ({ isOpen, toggleMenu }) => {
+  const [isFirstVisit, setIsFirstVisit] = useState(false);
+
+  useEffect(() => {
+    const firstVisit = localStorage.getItem('firstVisit');
+    if (!firstVisit) {
+      setIsFirstVisit(true);
+      localStorage.setItem('firstVisit', 'true');
+    }
+  }, []);
+
   // Animation properties for the rainbow effect
   const rainbowAnimation = useSpring({
     loop: true,
@@ -20,6 +30,13 @@ const Header = ({ isOpen, toggleMenu }) => {
     ],
     config: { duration: 5000 },
   });
+
+  // Close the menu when a link is clicked (on mobile)
+  const handleLinkClick = () => {
+    if (isOpen) {
+      toggleMenu(); // Close the mobile menu
+    }
+  };
 
   return (
     <animated.header className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-700 text-white py-4 md:py-6 z-50 sticky top-0 shadow-lg backdrop-blur-md">
@@ -42,6 +59,7 @@ const Header = ({ isOpen, toggleMenu }) => {
                       exact="true"
                       className="block px-6 py-3 text-lg font-medium hover:bg-blue-500 hover:text-white transition duration-200"
                       activeClassName="bg-blue-500 text-white"
+                      onClick={handleLinkClick} // Close menu when clicked
                     >
                       {link.text}
                     </NavLink>
@@ -80,6 +98,13 @@ const Header = ({ isOpen, toggleMenu }) => {
           </a>
         </div>
       </div>
+
+      {/* First-time visit message */}
+      {isFirstVisit && (
+        <div className="first-time-message bg-indigo-500 text-white py-2 px-6 rounded-md mt-4 text-center">
+          Welcome! Thanks for visiting my portfolio for the first time! 🎉
+        </div>
+      )}
     </animated.header>
   );
 };
