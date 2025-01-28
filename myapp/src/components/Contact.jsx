@@ -62,7 +62,7 @@ function Contact() {
       <p className="mb-6 text-center text-gray-600">
         Have a question or want to work together? Feel free to reach out using the form below or through my email at{' '}
         <a href="mailto:your.email@example.com" className="text-blue-500 hover:underline">
-          your.email@example.com
+          prakashchandrasahoo8991@gmail.com
         </a>
       </p>
       <form onSubmit={handleSubmit} className="space-y-6">
