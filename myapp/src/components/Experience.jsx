@@ -16,13 +16,13 @@ function Experience() {
               className="h-12 w-12 rounded-full object-cover"
             />
             <div>
-              <h3 className="text-xl font-semibold text-gray-800"> ENSS TECHNOLOGIES PVT LTD.</h3>
+              <h4 className="text-xl font-semibold text-gray-800"> ENSS TECHNOLOGIES PVT LTD.</h4>
               <p className="text-lg text-gray-600">Nov 2021 - Present</p>
             </div>
           </div>
 
           {/* Job Description */}
-          <p className="text-gray-700">
+          <p className="text-sm text-gray-700">
             As a FullStack Developer specializing in React.js at Terralogic Software Solutions deployed by ENSS TECHNOLOGIES PRIVATE LIMITED,
             I meticulously design and implement captivating user interfaces, ensuring a seamless and delightful user experience. 
             Additionally, I create immersive, user-friendly web experiences and design many APIs using Node.js and MongoDB.
