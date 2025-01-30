@@ -2,7 +2,7 @@ import React from 'react';
 import cmpImg from '../assets/download.jpeg'
 function Experience() {
   return (
-    <section id="experience" className="p-8 bg-gray-50 mb-4">
+    <section id="experience" className="p-8 bg-gradient-to-r from-blue-500 to-indigo-600 mb-4">
       
 
       <div className="flex flex-col items-center space-y-8">
