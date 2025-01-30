@@ -13,7 +13,7 @@ const Header = () => {
         </h1>
 
         {/* Navigation Links */}
-        <nav className="flex space-x-6">
+        <nav className="md:flex space-x-6">
           <Link
             to="/"
             onClick={() => setActiveLink('home')}
