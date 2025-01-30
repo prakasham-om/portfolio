@@ -43,6 +43,14 @@ function About() {
           <animated.h2 style={fadeIn} className="text-3xl font-semibold text-indigo-600 mb-2">
             Prakash Chandra Sahoo
           </animated.h2>
+          <animated.div style={iconFade} className="flex justify-center gap-10 mt-12">
+        <FaReact size={50} className="text-blue-500 hover:text-blue-600 transition duration-300" />
+        <FaNode size={50} className="text-green-600 hover:text-green-700 transition duration-300" />
+        <FaJs size={50} className="text-yellow-500 hover:text-yellow-600 transition duration-300" />
+        <DiMongodb size={50} className="text-green-800 hover:text-green-900 transition duration-300" />
+        <FaAws size={50} className="text-orange-500 hover:text-orange-600 transition duration-300" />
+        <FaAngular size={50} className="text-red-600 hover:text-red-700 transition duration-300" />
+      </animated.div>
           <p className="text-lg text-yellow-700 mb-4">Full Stack Developer</p>
           <button
             onClick={downloadCV}
@@ -69,14 +77,7 @@ function About() {
       </div>
 
       {/* Skills Section */}
-      <animated.div style={iconFade} className="flex justify-center gap-10 mt-12">
-        <FaReact size={50} className="text-blue-500 hover:text-blue-600 transition duration-300" />
-        <FaNode size={50} className="text-green-600 hover:text-green-700 transition duration-300" />
-        <FaJs size={50} className="text-yellow-500 hover:text-yellow-600 transition duration-300" />
-        <DiMongodb size={50} className="text-green-800 hover:text-green-900 transition duration-300" />
-        <FaAws size={50} className="text-orange-500 hover:text-orange-600 transition duration-300" />
-        <FaAngular size={50} className="text-red-600 hover:text-red-700 transition duration-300" />
-      </animated.div>
+      
     </section>
   );
 }
