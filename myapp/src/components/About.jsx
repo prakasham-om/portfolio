@@ -34,7 +34,7 @@ function About() {
     <section id="about" className="py-16 px-8 md:px-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white min-h-screen grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* Left side - Profile Card */}
       <div className="flex justify-center md:justify-start items-center">
-        <div className="bg-white text-gray-800 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out max-w-xs w-full p-6 text-center">
+        <div className="bg-gray-700 text-yellow-800 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out max-w-xs w-full p-6 text-center">
           <img
             src={profile}
             alt="Prakash Chandra Sahoo"
@@ -43,7 +43,7 @@ function About() {
           <animated.h2 style={fadeIn} className="text-3xl font-semibold text-indigo-600 mb-2">
             Prakash Chandra Sahoo
           </animated.h2>
-          <p className="text-lg text-gray-700 mb-4">Full Stack Developer | Cloud Enthusiast</p>
+          <p className="text-lg text-gray-700 mb-4">Full Stack Developer</p>
           <button
             onClick={downloadCV}
             className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg transform hover:scale-105"
