@@ -4,6 +4,7 @@ import { FaNode, FaJs, FaReact, FaAws, FaAngular } from 'react-icons/fa';
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg';
 import resumeM from '../assets/prakash.pdf'
+
 function About() {
   const downloadCV = () => {
     const pdfPath = resumeM;
@@ -32,21 +33,22 @@ function About() {
   return (
     <section id="about" className="py-16 px-8 md:px-20 bg-gray-50 text-gray-800 min-h-screen grid grid-cols-1 md:grid-cols-1 gap-10">
       <div className="flex justify-center mb-6 md:mb-0">
-        <img
-          src={profile}
-          alt="Prakash Chandra Sahoo"
-          className="w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full md:rounded-none shadow-xl border-4 border-indigo-500 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        />
+        {/* Profile Card */}
+        <div className="w-72 bg-gray-800 text-white rounded-lg shadow-lg hover:bg-green-600 transition-all duration-300 ease-in-out">
+          <div className="p-4 text-center">
+            <img
+              src={profile}
+              alt="Prakash Chandra Sahoo"
+              className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-green-500"
+            />
+            <animated.h2 style={fadeIn} className="text-2xl font-semibold text-green-400">
+              Prakash Chandra Sahoo
+            </animated.h2>
+          </div>
+        </div>
       </div>
 
       <div className="text-center md:text-left">
-        <animated.h2
-          style={fadeIn}
-          className="text-4xl font-semibold text-indigo-600 mb-6"
-        >
-          Prakash Chandra Sahoo
-        </animated.h2>
-
         <animated.p style={fadeIn} className="text-lg leading-relaxed text-gray-700 mb-4 md:hidden">
           I'm Prakash, a passionate software developer with over 3 years of experience in creating robust and scalable applications. I specialize in React, Node.js, Angular, MongoDB, and AWS. With a solid background in both front-end and back-end development, I focus on delivering high-quality, efficient solutions. I am driven by challenges and always eager to enhance my skills to meet evolving technology needs.
         </animated.p>
