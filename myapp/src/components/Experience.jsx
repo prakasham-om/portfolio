@@ -2,7 +2,7 @@ import React from 'react';
 import cmpImg from '../assets/download.jpeg'
 function Experience() {
   return (
-    <section id="experience" className="p-8 bg-gray-50">
+    <section id="experience" className="p-8 bg-gray-50 mb-4">
       <h2 className="text-3xl font-extrabold text-center mb-8 text-gray-800">Experience</h2>
 
       <div className="flex flex-col items-center space-y-8">
