@@ -43,7 +43,7 @@ function About() {
           <animated.h2 style={fadeIn} className="text-3xl font-semibold text-indigo-600 mb-2">
             Prakash Chandra Sahoo
           </animated.h2>
-          <p className="text-lg text-gray-700 mb-4">Full Stack Developer</p>
+          <p className="text-lg text-yellow-700 mb-4">Full Stack Developer</p>
           <button
             onClick={downloadCV}
             className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg transform hover:scale-105"
