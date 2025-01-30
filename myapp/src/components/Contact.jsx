@@ -61,7 +61,7 @@ function Contact() {
       </h2>
       <p className="mb-6 text-center text-gray-600">
         Have a question or want to work together? Feel free to reach out using the form below or through my email at{' '}
-        <a href="prakashchandrasahoo8991@gmail.com" className="text-blue-500 hover:underline">
+        <a href="mailto:prakashchandrasahoo8991@gmail.com" className="text-blue-500 hover:underline">
           prakashchandrasahoo8991@gmail.com
         </a>
       </p>
