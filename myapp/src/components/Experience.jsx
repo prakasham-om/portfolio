@@ -1,5 +1,5 @@
 import React from 'react';
-
+import cmpImg from '../assets/download.jpg'
 function Experience() {
   return (
     <section id="experience" className="p-8 bg-gray-50">
@@ -11,7 +11,7 @@ function Experience() {
           {/* Company Logo and Title */}
           <div className="flex items-center space-x-4">
             <img
-              src="https://example.com/your-company-logo.jpg" // Replace with actual company image URL
+              src={cmpImg}// Replace with actual company image URL
               alt="ENSS Technologies Logo"
               className="h-12 w-12 rounded-full object-cover"
             />
