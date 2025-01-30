@@ -48,7 +48,7 @@ const Sidebar = () => {
       </animated.div>
 
       {/* Footer for mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-blue-800 text-white py-2 flex justify-around items-center">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-blue-800 text-white py-2 flex justify-around items-center z-[1]">
         <ul className="flex w-full justify-around">
           {links.map((link, index) => (
             <li key={index}>
