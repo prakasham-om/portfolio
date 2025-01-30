@@ -17,7 +17,7 @@ export default function Projects() {
     description: 'A delicious food delivery app for your hunger needs.',
     link: 'your-link-here',
     image: '', // Add an image here if available
-  },
+  }, 
   {
     title: 'Sticky Note Book',
     description: 'The Sticky Note Web App, crafted with HTML and Bootstrap, offers a sleek and intuitive platform for digital note-taking.',
