@@ -2,7 +2,10 @@ import React from 'react';
 import medium from '../assets/medium.png';
 import sticky from '../assets/sticky.png';
 
-const projects = [
+
+
+export default function Projects() {
+  const projects = [
   {
     title: 'Medium Clone',
     description: `Introducing our innovative and user-friendly Medium Clone App, a powerful platform built with cutting-edge technologies like React, MongoDB, and Node.js. Our application redefines the way users consume and share captivating stories, articles, and insights, providing an immersive and seamless reading experience.`,
@@ -22,8 +25,6 @@ const projects = [
     image: sticky,
   },
 ];
-
-export default function Projects() {
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-6">
