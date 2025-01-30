@@ -16,7 +16,7 @@ function Experience() {
               className="h-12 w-12 rounded-full object-cover"
             />
             <div>
-              <h3 className="text-xl font-bold text-gray-800">Software Engineer - ENSS TECHNOLOGIES Pvt Ltd.</h3>
+              <h3 className="text-xl font-bold text-gray-800"> ENSS TECHNOLOGIES PVT LTD.</h3>
               <p className="text-lg text-gray-600">Nov 2021 - Present</p>
             </div>
           </div>
