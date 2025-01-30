@@ -16,7 +16,7 @@ function Experience() {
               className="h-12 w-12 rounded-full object-cover"
             />
             <div>
-              <h4 className="text-xl font-semibold text-gray-800"> ENSS TECHNOLOGIES PVT LTD.</h4>
+              <h4 className="text-lg font-semibold text-gray-800">ENSS TECHNOLOGIES PVT LTD.</h4>
               <p className="text-lg text-gray-600">Nov 2021 - Present</p>
             </div>
           </div>
@@ -30,7 +30,7 @@ function Experience() {
 
           {/* Project Description */}
           <div className="mt-5">
-            <h4 className="text-xl font-semibold text-gray-800">KYP (Know Your Provider)</h4>
+            <h4 className="text-lg font-semibold text-gray-800">KYP (Know Your Provider)</h4>
             <p className="text-gray-600">
               Description: This is a one-step solution for screening, enrollment, and monitoring of providers for eligibility for claims.
             </p>
