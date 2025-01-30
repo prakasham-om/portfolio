@@ -42,7 +42,7 @@ const Projects = ({ style }) => {
   return (
     <animated.section className="bg-gray-100 py-4" style={style}>
       <div className="container mx-auto px-2">
-        <h2 className="text-3xl font-bold mb-4">Projects</h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-2">
           {projects.map((project, index) => (
             <div
