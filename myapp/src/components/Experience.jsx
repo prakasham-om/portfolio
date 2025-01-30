@@ -1,5 +1,5 @@
 import React from 'react';
-import cmpImg from '../assets/download.jpg'
+import cmpImg from '../assets/download.jpeg'
 function Experience() {
   return (
     <section id="experience" className="p-8 bg-gray-50">
