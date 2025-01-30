@@ -18,9 +18,9 @@ const Layout = () => {
         <div className="flex-1 overflow-x-hidden overflow-y-auto">
           <Routes>
             <Route path="/" exact element={<About />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/experience" exact element={<Experience />} />
+            <Route path="/projects"exact  element={<Projects />} />
+            <Route path="/contact" exact element={<Contact />} />
             <Route path="/*"  element={<About />} />
           </Routes>
         </div>
