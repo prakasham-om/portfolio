@@ -5,7 +5,7 @@ import { FaHome, FaBriefcase, FaFolderOpen, FaEnvelope, FaUser, FaPen } from 're
 const Sidebar = () => {
   return (
     <footer className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white border-t border-gray-700 z-[1]">
-      <nav className="flex justify-center items-center py-3 space-x-4 overflow-x-auto no-scrollbar">
+      <nav className="flex justify-center items-center py-3 space-x-4 overflow-x-auto scrollbar">
         {/* Home */}
         <NavLink
           to="/"
@@ -44,16 +44,6 @@ const Sidebar = () => {
         >
           <FaEnvelope className="text-xl mb-1 transition-all duration-200" />
           <span>Contact</span>
-        </NavLink>
-
-        {/* Study */}
-        <NavLink
-          to="/study"
-          className="flex flex-col items-center text-sm transition-transform duration-300 ease-in-out transform hover:scale-110"
-          activeClassName="text-blue-400 scale-125"
-        >
-          <FaUser className="text-xl mb-1 transition-all duration-200" />
-          <span>Study</span>
         </NavLink>
 
         {/* Blog */}
