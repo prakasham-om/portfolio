@@ -34,6 +34,11 @@ function Experience() {
             <p className="text-gray-600">
               Description: This is a one-step solution for screening, enrollment, and monitoring of providers for eligibility for claims.
             </p>
+            <div className="mt-5">
+            <h4 className="text-lg font-semibold text-gray-800">Product and Seller Management </h4>
+            <p className="text-gray-600">
+              Description: This is a one-step solution for screening, enrollment, and monitoring of providers for eligibility for claims.
+            </p>
           </div>
         </div>
       </div>
