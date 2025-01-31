@@ -5,7 +5,7 @@ import { FaHome, FaBriefcase, FaFolderOpen, FaEnvelope, FaUser, FaPen } from 're
 const Sidebar = () => {
   return (
     <footer className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white border-t border-gray-700 z-[1]">
-      <nav className="flex justify-center items-center py-3 space-x-2 overflow-x-auto ">
+      <nav className="flex justify-center items-center py-3 space-x-6 overflow-x-auto ">
         {/* Home */}
         <NavLink
           to="/"
