@@ -10,23 +10,22 @@ const Projects = ({ style }) => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative rounded-lg overflow-hidden shadow-md bg-white cursor-pointer"
+              className="relative rounded-lg overflow-hidden shadow-md bg-cover cursor-pointer"
+              style={{
+                backgroundImage: project.image ? `url(${project.image})` : 'none',
+                height: '200px', // Keeping the original height
+              }}
             >
-              <div
-                className="bg-cover h-48"
-                style={{
-                  backgroundImage: project.image ? `url(${project.image})` : 'none',
-                }}
-              ></div>
-              <div className="p-4">
-                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-700 mb-4">{project.description}</p>
+              <div className="absolute inset-0 bg-black opacity-40"></div>
+              <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-sm">{project.description}</p>
                 {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 underline"
+                    className="text-blue-500 underline mt-2 block"
                   >
                     View Project
                   </a>
