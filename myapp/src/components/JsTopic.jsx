@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaCopy } from 'react-icons/fa'; // Icon for the Copy button
-import jsTopics from './jsTopic'
+import jsTopics from '../jsTopic'
 
 
 const JsTopic = () => {
