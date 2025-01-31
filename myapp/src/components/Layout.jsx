@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import Experience from './Experience';
 import Projects from './Projects';
 import Contact from './Contact';
+import JsTopic from './JsTopic';
 
 const Layout = () => {
   
@@ -21,6 +22,7 @@ const Layout = () => {
             <Route path="/experience" exact element={<Experience />} />
             <Route path="/projects"exact  element={<Projects />} />
             <Route path="/contact" exact element={<Contact />} />
+            <Route path="/blog" element={<JsTopic/>}/>
             <Route path="/*"  element={<About />} />
           </Routes>
         </div>
