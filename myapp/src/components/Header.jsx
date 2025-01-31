@@ -42,6 +42,13 @@ const Header = () => {
           >
             Contact
           </Link>
+          <Link
+            to="/blog"
+            onClick={() => setActiveLink('contact')}
+            className={`text-lg ${activeLink === 'contact' ? 'text-blue-400' : 'text-white'} hover:text-blue-400 transition-colors`}
+          >
+            Blog
+          </Link>
         </nav>
 
         {/* Social Icons */}
