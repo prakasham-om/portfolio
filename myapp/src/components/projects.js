@@ -23,5 +23,5 @@ import sticky from '../assets/sticky.png';
     image: sticky,
   },
 ];
-
+export default projects
 
