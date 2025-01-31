@@ -4,7 +4,7 @@ import projects from './projects';
 
 const Projects = ({ style }) => {
   return (
-    <animated.section className="bg-gray-100 py-4" style={style}>
+    <animated.section className="bg-blue-100 py-4" style={style}>
       <div className="container mx-auto px-2">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-2">
           {projects.map((project, index) => (
