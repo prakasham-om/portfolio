@@ -5,13 +5,143 @@ const jsTopic = [
     code: `let x = 10;
 const y = 20;
 var z = 30;
-console.log(x, y, z);`,
+console.log(x, y, z);
+//variable is like a container using variable we can store num,string,array,object etc.
+//javascript is  dynamically type because we can change variable "type" in runtime.
+//in javascript there are 3 type of variable
+//let,var,const
+
+/* var:-
+ var-is also known as global variable,hoisting happens in var and
+ we can redeclare and re-assign the value in var
+ it's oldest variable means before ES6 it's use know it replace by let
+
+ *var is add itself as a window object
+ 
+ */
+
+var a=10;
+console.log(a); //output 10
+var a=12 //here a redeclare
+console.log(a);//output will 12 
+a=19
+console.log(a);//update a value
+
+{
+    var name="prakash";
+    console.log(name);
+}
+console.log(name);  //name is declare in blockscope but we can access it out of block
+
+function vardeclar(){
+    for(var i=0;i<12;i++){
+        console.log(i);//0,1,2,3,4,5,6,7,8,9,10,11
+    }
+    console.log(i);//12
+}
+
+
+//let :-
+//let-is also known as functional scope or block scope,hoistion not happen
+//we can reassign the value of let we can't redeclare it again     
+//hoisting not happen in let  
+
+let b=10;
+console.log(b)//output 10
+b=15
+console.log(b) //we can update let value but we can't redclare
+{
+    console.log(b)//we can access the outer side declare varible 
+    let sname="sahoo";
+    console.log(sname);
+}
+ //console.log(sname); //we can't access the value from the block scope
+
+
+
+//const:-
+/**
+ * we can't update and redclare in const
+ * hoisting not happen in constant
+ */
+
+const c="constant";
+console.log(c);
+
+//question-1:
+//create a varibale of type string and try to add numbr to it
+
+let num="23";
+let num2=6;
+let add=num+num2
+console.log(add)
+
+//q2. find typeof the add from above
+
+console.log(typeof(add))
+
+//q 3. can a cost of object in js can you change it to hold a number letter.--> ans :no
+`,
     output: "10 20 30"
   },
   {
     topicName: "Data Types",
     description: "JavaScript has primitive data types like string, number, boolean, null, undefined, and symbol.",
-    code: `console.log(typeof "Hello", typeof 42, typeof true, typeof null, typeof undefined);`,
+    code: `
+    /**datatype is used to store which type data store with the varibale
+ * premitive datatype -7 type datatypes(null,number,symbol,string,boolean,bigint,undefined)
+ * 
+ * non premitive datatype is object(object have key and value pair)
+ */
+//premitive :-
+let a=null; //null
+let b=261523; //num
+let c=Symbol("i am a symbol"); //symbol
+let d="prakash"; //string
+let e=BigInt("5252");//bigint
+let f; //undefined
+console.log(a,b,c,d,e,f)
+//beuity of bigint
+let add= BigInt("54")+BigInt("6")
+console.log(add);
+
+
+//non-premitive:-
+const item={
+    "name":"Prakash",
+    "age":24,
+    "marritial status":undefined,
+    "developer":true
+
+}
+console.log(item["marritial status","age"])
+
+
+
+//q1 try to add new key in the given object
+
+const data={
+    "name":"shiva",
+    "age":2,
+
+}
+data["mob"]="8787665";
+console.log(data)
+//data is a refence of object 
+
+//q 2. create a 5 word dictionary
+
+const dictionary={
+    hello:"greeting message",
+    hello1:"greeting message",
+    hello2:"greeting message",
+    hello3:"greeting message",
+    hello4:"greeting message"
+
+}
+
+console.log(dictionary.hello)
+    `,
     output: "string number boolean object undefined"
   },
   {
@@ -23,8 +153,38 @@ console.log(x, y, z);`,
   {
     topicName: "Functions",
     description: "Functions are reusable blocks of code.",
-    code: `function greet() { return "Hello!"; }
-console.log(greet());`,
+    code: `
+    function findOddEven(number){
+    (number % 2==0 ) ? console.log("even") :console.log("odd")
+}
+findOddEven(37)
+
+
+
+
+/**
+ * Anonymous function / function expression 
+The anonymous functions don’t have names.
+They need to be tied to something: variable or an event to run.
+ */
+
+let findoddeven=function (number){
+    (number % 2==0 ) ? console.log("even") :console.log("odd")
+}
+findoddeven(84)
+
+/*IIFE
+
+Invoked function expression runs as soon as the browser encounters it.
+The benefit of this function is that it runs immediately where it’s located 
+in the code and produces a direct output. That means 
+it is unaffected by code which appears further down in the script which can be useful.
+*/
+
+let iif=(function (){
+    console.log("my name is Rohit")
+})();
+    `,
     output: "Hello!"
   },
   {
@@ -37,23 +197,209 @@ console.log(greet());`,
   {
     topicName: "Objects",
     description: "Objects are collections of key-value pairs.",
-    code: `const person = { name: "John", age: 30 };
-console.log(person.name);`,
+    code: `
+let obj={
+   firstName:"prakash",
+    lastName:"sahoo"
+}
+
+console.log(obj.firstName)  //property called by . notation
+
+console.log(obj["firstName"])//property called by array notation
+//modify property
+
+obj.firstName="Rohit";
+console.log(obj.firstName);
+
+//add new property
+
+obj.age=25;
+
+console.log(obj) // op:{ firstName: 'Rohit', lastName: 'sahoo', age: 25 }
+
+//delete property
+
+delete obj.firstName
+console.log(obj) // op:{ lastName: 'sahoo', age: 25 }
+
+`,
     output: "John"
   },
   {
     topicName: "Arrays",
     description: "Arrays are ordered lists of values.",
-    code: `const arr = [1, 2, 3];
-console.log(arr[1]);`,
+    code: `
+    /**
+ * In JavaScript, array is a single variable that is used to store different elements.
+ * It is often used when we want to store list of elements and access  them by a single variable.
+ * 
+ * in javascript type of array is a object
+ * 
+ * we can store multiple type of data type 
+ * 
+ * always array index no. start from 0
+ */
+
+let arr=[23,3,"prakash"];
+console.log(arr);
+
+
+
+//example
+let name=['arun','anand','khagesh','prabin'];
+console.log(name[2]);//it will print index two element
+
+//methods of an array
+
+//*push method-used for add element at the end of an array and it can  change original array
+//ex--
+name.push("prakash");
+console.log(name);//print total element of an array['arun','anand','khagesh','prabin','prakash]
+
+//pop_method of anrray is used for delete an element end of an array it can also change orginal arr
+//ex--
+name.pop();
+console.log(name) //['arun','anand','khagesh','prabin']
+
+//unshift_method is used to add element at the starting of index 
+//ex---
+name.unshift('chandan');
+console.log(name);//['chandan','arun','anand','khagesh','prabin']
+
+//shift_method is used to delete element at the starting of index
+//ex---
+name.shift();
+console.log(name);//['arun','anand','khagesh','prabin']
+
+//splice() is used random element delete alse we add and it can change the original array
+name.splice(2,1);// it delete one element from  index no.2 
+console.log(name);//['arun','anand','prabin']
+name.splice(2,1,"jyoti");
+console.log(name); //[ 'arun', 'anand', 'jyoti' ] here prabin removed and add jyoti
+
+
+
+// slice() create new array with change original array
+console.log(name.slice(1)); //[ 'anand', 'jyoti' ] remove index 1 item
+
+
+
+//split() in array
+//make sentence to aaray
+let fr="khalikote autonomous college"
+let xyz=fr.split(" ");//it dpend what we pass argument here we pass space ..
+console.log(xyz);//['khalikote','autonomous','college']
+
+//join() in an array we can join text and using this method
+let mn=name.join("---");
+console.log(mn); //arun---anand---prabin
+
+//concat() this method is used for adding two or more array it doesn't change existing array
+let lastName=['pradhan','samal','sahu'];
+let friend=name.concat(lastName);
+console.log(friend); //[ 'arun', 'anand', 'prabin', 'pradhan', 'samal', 'sahu' ]
+
+//sort( )  for sort in alpha betically  it can change original array
+
+console.log(name.sort());
+// in sort method we can arrange it accending or decending order using a compare function
+//it can change the original
+//ex:
+
+let arr1=[13,344,4,23,7,2,76,9,3];
+let compare=(a,b)=>{
+  return a-b; //for deccending order and 'b-a' used for accending order
+}
+console.log(arr1.sort(compare)) //[2,3,4,7,9,13,23,76,344] deccending oreder
+
+
+
+//reverse method used tp reverse all items
+
+console.log(arr1.reverse()); //[344, 76, 23, 13, 9,7,  4,  3,  2]
+
+
+//from() used to create a array from other object
+
+let a="raghav";
+console.log(Array.from(a)); //[ 'r', 'a', 'g', 'h', 'a', 'v' ]
+    `,
     output: "2"
   },
   {
-    topicName: "Array Methods (map, filter, reduce)",
+    topicName: "Array Methods (map, filter, reduce,forEach)",
     description: "Array methods are used to manipulate arrays.",
-    code: `const nums = [1, 2, 3];
-const doubled = nums.map(x => x * 2);
-console.log(doubled);`,
+    code: `
+    /**
+ * in javascript for each nd map method are equal but in map method it can return a new 
+    array after perform all of it's operation
+ * it also taken 3 arguments 
+ */
+
+    let arr=[1,5,11];
+
+    let arr1=arr.map((val,indx,arr)=>{
+        console.log(val,indx,arr);//it print val,index,array like: 5 1 [ 1, 5, 11 ]
+        return val+indx;
+    })
+    console.log(arr1);
+
+    /**
+ * in filter method only the the true value return 
+ */
+
+let arr=[1,2,3,4,5,53,];
+let new_Arr=arr.filter((val,indx,arr)=>{
+  return val >5 ;
+
+})
+console.log(new_Arr);
+
+//find the duplicate no
+
+function findDuplicates(arr1) {
+   return  arr1.filter((item, index) => arr1.indexOf(item) !== index);
+   // console.log(arr1);
+   // return [...new Set(arr11)] // sort method for removing duplicate
+}
+ 
+const arr1 = [1,6,2,4,6,7,8,9,8,7,9,5];
+const duplicates = findDuplicates(arr1);
+
+console.log(duplicates); 
+
+/**
+ * reduce method pick the element of array from left to right and conver it a single value;
+ * we pass two arguments(accumulator,value)
+ */
+let arr=[1,2,4,4,5,3];
+//let reduce=arr.reduce((acc,val)=>{return acc+val},intialvalue);
+let reduce=arr.reduce((acc,val)=>{return acc+val},9);  //the total arrray is=19 and intail value 9 total=28
+console.log(reduce)
+
+/**
+ * when we need to perform a same operation for each element of a array there we use for each method
+ * we can pass three argument forEach(value,index,arr)
+ * 
+ */
+ let arr=[1,2,3,4,5,6,7,8,9];
+
+ arr.forEach((ele)=>{  console.log(ele*ele)});
+
+//for....of loop using this loop we can do the iteration method only for array
+
+for(let i of arr){
+    console.log(i) //[1,2,3,4,5,6,7,8,9];
+}
+
+//for...in loop using this loop we can find index no
+for(let i in arr){
+    console.log(i) //[1,2,3,4,5,6,7,8]; index no
+}
+
+ 
+    
+    `,
     output: "[2, 4, 6]"
   },
   {
@@ -67,6 +413,28 @@ console.log(arr[2]);
 let [[x,y],[z,l],{hello,aaa}]=arr;
 
 console.log(hello) //sbsj
+
+/**
+ * object destructure key based
+ * 
+ * whene we destrucure a object it most be need a valid key name otherwise undefined show
+ */
+
+let obj={
+    name:"Prakash",
+    email:"rohitsahoo866@gmail.com",
+    mob:7750097143
+}
+
+let {email}=obj; //here email don't copy first value it depends upon key
+
+console.log(email);
+
+
+//we can destrure using rest operator
+let {...rest}=obj;
+console.log(rest); // print all key and value of a object
+
 `,
     output: "1 2" 
   },
@@ -95,8 +463,41 @@ console.log(sum(1, 2, 3));`,
   {
     topicName: "Promises",
     description: "Promises handle asynchronous operations.",
-    code: `const promise = new Promise((resolve) => setTimeout(() => resolve("Done!"), 1000));
-promise.then(console.log);`,
+    code: `
+    //ex promise object
+let data=2
+let _promise=new Promise((resolve,reject)=>{ //resolve and reject are  function
+    setTimeout(()=>{
+        reject("err")
+       // console.log(data)  
+},2000)
+})
+
+_promise.then((item)=>{console.log(item)}).catch((err)=>{
+    console.log(err);
+})
+
+
+
+
+//simple example of promise
+let add=new Promise((resolve,reject)=>{
+    let a=1+5;
+    if(a===6){
+     resolve(`suceesful of add a= ${a}`)
+ 
+    }
+    else{
+     reject(`failed to add`)
+    }
+ })
+ 
+ add.then((message)=>{
+     console.log(message)
+ }).catch((message)=>{
+     console.log(message)
+ })
+    `,
     output: "Done! (after 1 second)"
   },
   {
@@ -119,8 +520,32 @@ console.log(outer()());`,
   {
     topicName: "Hoisting",
     description: "Hoisting moves variable and function declarations to the top of their scope.",
-    code: `console.log(x);
-var x = 5;`,
+    code: `
+    b=10;
+    console.log(b); //10
+    var b;
+    //in the above code 'var b' will shift the top of the code
+
+    console.log(x); //undefined
+    var x=9;
+/**
+ * in the above code we will get undefined because
+ * console.log(x)
+ * var x=9; the execution code will this type so x didn't get any value
+            {
+                var x;
+                console.log(x);
+                x=9;
+            }
+ */
+    
+    //for function
+ 
+    super_man()  //here we called a function which is not defined but it give out put
+   function super_man(){
+    console.log("super man have four hand and 10 heads");
+   }
+    `,
     output: "undefined"
   },
   {
