@@ -1,251 +1,285 @@
 const jsTopic = [
   {
-    topicName: "Variables and Data Types",
-    description: "In JavaScript, variables can hold different types of values, such as numbers, strings, and objects. JavaScript has dynamic typing, meaning variable types are determined at runtime.",
-    code: `
-      let name = "John";     // String
-      let age = 30;          // Number
-      let isStudent = true;  // Boolean
-      let person = null;     // Null
-      let details;           // Undefined
-      let bigNumber = 9007199254740991n; // BigInt
-      let symbol = Symbol('id'); // Symbol
-
-      console.log(name, age, isStudent, person, details, bigNumber, symbol);
-    `,
-    output: "John 30 true null undefined 9007199254740991 Symbol(id)"
+    topicName: "Variables (let, const, var)",
+    description: "Variables are used to store data. `let` and `const` are block-scoped, while `var` is function-scoped.",
+    code: `let x = 10;
+const y = 20;
+var z = 30;
+console.log(x, y, z);`,
+    output: "10 20 30"
   },
-
   {
-    topicName: "Hoisting",
-    description: "Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their scope before code execution. It only hoists declarations, not initializations.",
-    code: `
-      greet(); // Output: "Hello, World!"
-      
-      function greet() {
-        console.log("Hello, World!");
-      }
-
-      console.log(x); // Output: undefined
-      var x = 10;
-      console.log(x); // Output: 10
-    `,
-    output: "Hello, World!\nundefined\n10"
+    topicName: "Data Types",
+    description: "JavaScript has primitive data types like string, number, boolean, null, undefined, and symbol.",
+    code: `console.log(typeof "Hello", typeof 42, typeof true, typeof null, typeof undefined);`,
+    output: "string number boolean object undefined"
   },
-
   {
-    topicName: "Strict Mode",
-    description: "'Strict mode' is a way to opt into a restricted version of JavaScript. It makes it easier to write secure JavaScript by throwing errors for common mistakes (like using undeclared variables).",
-    code: `
-      'use strict';
-      x = 5;  // This will throw an error because 'x' is not declared.
-    `,
-    output: "ReferenceError: x is not defined"
+    topicName: "Type Coercion",
+    description: "JavaScript automatically converts types when performing operations.",
+    code: `console.log("5" + 5, "5" - 5);`,
+    output: "55 0"
   },
-
-  {
-    topicName: "Null vs Undefined",
-    description: "Both `null` and `undefined` represent the absence of a value, but they are different types. `undefined` is a type itself, and it is automatically assigned to uninitialized variables. `null` is an intentional absence of any object value.",
-    code: `
-      let a; // undefined by default
-      let b = null; // explicitly assigned null
-
-      console.log(a); // undefined
-      console.log(b); // null
-      console.log(a == b); // true (compared by value)
-      console.log(a === b); // false (strict comparison by type)
-    `,
-    output: "undefined\nnull\ntrue\nfalse"
-  },
-
   {
     topicName: "Functions",
-    description: "Functions are blocks of code that perform a task. JavaScript supports named and anonymous functions, as well as arrow functions introduced in ES6.",
-    code: `
-      // Function declaration
-      function greet() {
-        console.log("Hello, World!");
-      }
-
-      // Function expression
-      const add = function(a, b) {
-        return a + b;
-      };
-
-      // Arrow function (ES6)
-      const subtract = (a, b) => a - b;
-
-      greet(); // Output: "Hello, World!"
-      console.log(add(5, 3)); // Output: 8
-      console.log(subtract(10, 4)); // Output: 6
-    `,
-    output: "Hello, World!\n8\n6"
+    description: "Functions are reusable blocks of code.",
+    code: `function greet() { return "Hello!"; }
+console.log(greet());`,
+    output: "Hello!"
   },
-
   {
     topicName: "Arrow Functions",
-    description: "Arrow functions are a more concise way of writing functions in JavaScript. They also do not have their own `this` context, which is important when used in certain situations like event handlers.",
-    code: `
-      const multiply = (a, b) => a * b;
-      console.log(multiply(2, 3)); // Output: 6
-
-      // Example of missing 'this' context in arrow function:
-      const person = {
-        name: 'John',
-        greet: () => {
-          console.log(this.name); // 'this' will not refer to person
-        }
-      };
-      person.greet(); // Output: undefined
-    `,
-    output: "6\nundefined"
+    description: "Arrow functions provide a concise syntax for writing functions.",
+    code: `const greet = () => "Hello!";
+console.log(greet());`,
+    output: "Hello!"
   },
-
   {
     topicName: "Objects",
-    description: "Objects in JavaScript are used to store collections of data in key-value pairs. They can represent real-world entities and are one of the most important data structures.",
-    code: `
-      const person = {
-        name: 'John',
-        age: 30,
-        greet: function() {
-          console.log("Hello, " + this.name);
-        }
-      };
-
-      console.log(person.name); // Output: John
-      person.greet(); // Output: Hello, John
-    `,
-    output: "John\nHello, John"
+    description: "Objects are collections of key-value pairs.",
+    code: `const person = { name: "John", age: 30 };
+console.log(person.name);`,
+    output: "John"
   },
-
   {
     topicName: "Arrays",
-    description: "Arrays are ordered lists of elements. They can hold data of any type, and their elements can be accessed using an index starting from 0.",
-    code: `
-      const numbers = [1, 2, 3, 4];
-      console.log(numbers[0]); // Output: 1
-      console.log(numbers.length); // Output: 4
-
-      // Adding and removing elements
-      numbers.push(5);  // Adds 5 to the end
-      numbers.pop();    // Removes the last element
-      console.log(numbers); // Output: [1, 2, 3, 4]
-    `,
-    output: "1\n4\n[1, 2, 3, 4]"
+    description: "Arrays are ordered lists of values.",
+    code: `const arr = [1, 2, 3];
+console.log(arr[1]);`,
+    output: "2"
   },
-
   {
-    topicName: "Higher Order Functions",
-    description: "Higher-order functions take other functions as arguments or return a function as a result. Common examples include `map`, `filter`, and `reduce`.",
-    code: `
-      const numbers = [1, 2, 3, 4, 5];
-
-      // map example
-      const doubled = numbers.map(num => num * 2);
-      console.log(doubled); // Output: [2, 4, 6, 8, 10]
-
-      // filter example
-      const even = numbers.filter(num => num % 2 === 0);
-      console.log(even); // Output: [2, 4]
-
-      // reduce example
-      const sum = numbers.reduce((acc, num) => acc + num, 0);
-      console.log(sum); // Output: 15
-    `,
-    output: "[2, 4, 6, 8, 10]\n[2, 4]\n15"
+    topicName: "Array Methods (map, filter, reduce)",
+    description: "Array methods are used to manipulate arrays.",
+    code: `const nums = [1, 2, 3];
+const doubled = nums.map(x => x * 2);
+console.log(doubled);`,
+    output: "[2, 4, 6]"
   },
-
   {
-    topicName: "Closures",
-    description: "A closure is a function that retains access to its lexical scope, even after the outer function has finished execution. Closures are often used to create private variables or to preserve state across multiple function calls.",
-    code: `
-      function outer() {
-        let count = 0;
+    topicName: "Destructuring",
+    description: "Destructuring allows unpacking values from arrays or objects.",
+    code: `const [a, b] = [1, 2];
+console.log(a, b);
+let arr=[[12,22],[222,'rohit'],{hello:'sbsj',aaa:'sggd'}]
+console.log(arr[2]);
 
-        return function inner() {
-          count++;
-          console.log(count);
-        };
-      }
+let [[x,y],[z,l],{hello,aaa}]=arr;
 
-      const counter = outer();
-      counter(); // Output: 1
-      counter(); // Output: 2
-    `,
-    output: "1\n2"
+console.log(hello) //sbsj
+`,
+    output: "1 2",sbsj
   },
-
+  {
+    topicName: "Template Literals",
+    description: "Template literals allow embedding expressions in strings.",
+    code: `const name = "John";
+console.log(\`Hello, \${name}!\`);`,
+    output: "Hello, John!"
+  },
+  {
+    topicName: "Spread Operator",
+    description: "The spread operator expands arrays or objects.",
+    code: `const arr1 = [1, 2];
+const arr2 = [...arr1, 3];
+console.log(arr2);`,
+    output: "[1, 2, 3]"
+  },
+  {
+    topicName: "Rest Parameters",
+    description: "Rest parameters allow functions to accept an indefinite number of arguments.",
+    code: `function sum(...nums) { return nums.reduce((a, b) => a + b); }
+console.log(sum(1, 2, 3));`,
+    output: "6"
+  },
   {
     topicName: "Promises",
-    description: "A `Promise` is an object representing the eventual completion or failure of an asynchronous operation. It allows chaining of `.then()` and `.catch()` methods to handle success and failure.",
-    code: `
-      const fetchData = new Promise((resolve, reject) => {
-        const success = true;
-        
-        if (success) {
-          resolve('Data fetched successfully');
-        } else {
-          reject('Error fetching data');
-        }
-      });
-
-      fetchData
-        .then(response => console.log(response)) // Output: 'Data fetched successfully'
-        .catch(error => console.log(error));     // Output: 'Error fetching data'
-    `,
-    output: "Data fetched successfully"
+    description: "Promises handle asynchronous operations.",
+    code: `const promise = new Promise((resolve) => setTimeout(() => resolve("Done!"), 1000));
+promise.then(console.log);`,
+    output: "Done! (after 1 second)"
   },
-
   {
     topicName: "Async/Await",
-    description: "The `async` and `await` keywords provide a cleaner syntax for working with Promises, enabling asynchronous code to be written in a more synchronous style.",
-    code: `
-      async function fetchData() {
-        const response = await new Promise((resolve, reject) => {
-          setTimeout(() => resolve("Data fetched"), 2000);
-        });
-        console.log(response); // Output: 'Data fetched'
-      }
-
-      fetchData();
-    `,
-    output: "Data fetched"
+    description: "Async/await simplifies working with promises.",
+    code: `async function fetchData() { return "Data"; }
+fetchData().then(console.log);`,
+    output: "Data"
   },
-
   {
-    topicName: "Try...Catch...Finally",
-    description: "The `try...catch...finally` statement is used for error handling. The code inside the `try` block is executed, and if an error occurs, the `catch` block is executed. The `finally` block is always executed, regardless of an error.",
-    code: `
-      try {
-        let result = riskyFunction();
-      } catch (error) {
-        console.log('Error:', error.message); // Output: 'Error: Something went wrong'
-      } finally {
-        console.log('This block always executes.');
-      }
-
-      function riskyFunction() {
-        throw new Error('Something went wrong');
-      }
-    `,
-    output: "Error: Something went wrong\nThis block always executes."
+    topicName: "Closures",
+    description: "Closures allow functions to retain access to their lexical scope.",
+    code: `function outer() {
+  const x = 10;
+  return function inner() { return x; };
+}
+console.log(outer()());`,
+    output: "10"
   },
-
+  {
+    topicName: "Hoisting",
+    description: "Hoisting moves variable and function declarations to the top of their scope.",
+    code: `console.log(x);
+var x = 5;`,
+    output: "undefined"
+  },
+  {
+    topicName: "Event Loop",
+    description: "The event loop handles asynchronous callbacks.",
+    code: `console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+console.log("End");`,
+    output: "Start End Timeout"
+  },
+  {
+    topicName: "DOM Manipulation",
+    description: "The DOM can be manipulated using JavaScript.",
+    code: `document.body.innerHTML = "<h1>Hello</h1>";`,
+    output: "Page displays 'Hello'"
+  },
   {
     topicName: "Event Handling",
-    description: "Event handling refers to the process of capturing and responding to events like mouse clicks, form submissions, and key presses.",
-    code: `
-      const button = document.createElement('button');
-      button.textContent = 'Click me!';
-      document.body.appendChild(button);
-
-      button.addEventListener('click', function() {
-        console.log('Button clicked!');
-      });
-    `,
-    output: "Button clicked!" // Upon click
+    description: "Events can be handled using event listeners.",
+    code: `document.addEventListener("click", () => console.log("Clicked!"));`,
+    output: "Clicked! (when page is clicked)"
+  },
+  {
+    topicName: "Fetch API",
+    description: "The Fetch API is used to make HTTP requests.",
+    code: `fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then(response => response.json())
+  .then(data => console.log(data));`,
+    output: "{ userId: 1, id: 1, title: 'delectus aut autem', completed: false }"
+  },
+  {
+    topicName: "Classes",
+    description: "Classes are blueprints for creating objects.",
+    code: `class Person {
+  constructor(name) { this.name = name; }
+  greet() { return \`Hello, \${this.name}!\`; }
+}
+const john = new Person("John");
+console.log(john.greet());`,
+    output: "Hello, John!"
+  },
+  {
+    topicName: "Inheritance",
+    description: "Inheritance allows classes to inherit properties and methods.",
+    code: `class Animal {
+  constructor(name) { this.name = name; }
+  speak() { return \`\${this.name} makes a noise.\`; }
+}
+class Dog extends Animal {
+  speak() { return \`\${this.name} barks.\`; }
+}
+const dog = new Dog("Rex");
+console.log(dog.speak());`,
+    output: "Rex barks."
+  },
+  {
+    topicName: "Modules",
+    description: "Modules allow splitting code into reusable pieces.",
+    code: `// math.js
+export const add = (a, b) => a + b;
+// main.js
+import { add } from './math.js';
+console.log(add(2, 3));`,
+    output: "5"
+  },
+  {
+    topicName: "Error Handling",
+    description: "Errors can be handled using try-catch blocks.",
+    code: `try {
+  throw new Error("Oops!");
+} catch (e) {
+  console.log(e.message);
+}`,
+    output: "Oops!"
+  },
+  {
+    topicName: "Regular Expressions",
+    description: "Regular expressions are used for pattern matching.",
+    code: `const str = "Hello, World!";
+console.log(str.match(/Hello/));`,
+    output: "['Hello']"
+  },
+  {
+    topicName: "JSON",
+    description: "JSON is a data format used for data exchange.",
+    code: `const obj = { name: "John" };
+const json = JSON.stringify(obj);
+console.log(json);`,
+    output: '{"name":"John"}'
+  },
+  {
+    topicName: "Local Storage",
+    description: "Local storage allows storing data in the browser.",
+    code: `localStorage.setItem("name", "John");
+console.log(localStorage.getItem("name"));`,
+    output: "John"
+  },
+  {
+    topicName: "Session Storage",
+    description: "Session storage is similar to local storage but cleared on page close.",
+    code: `sessionStorage.setItem("name", "John");
+console.log(sessionStorage.getItem("name"));`,
+    output: "John"
+  },
+  {
+    topicName: "Timers (setTimeout, setInterval)",
+    description: "Timers are used to delay or repeat code execution.",
+    code: `setTimeout(() => console.log("Timeout"), 1000);
+setInterval(() => console.log("Interval"), 2000);`,
+    output: "Timeout (after 1 second) Interval (every 2 seconds)"
+  },
+  {
+    topicName: "This Keyword",
+    description: "`this` refers to the current execution context.",
+    code: `const obj = {
+  name: "John",
+  greet() { return \`Hello, \${this.name}!\`; }
+};
+console.log(obj.greet());`,
+    output: "Hello, John!"
+  },
+  {
+    topicName: "Bind, Call, Apply",
+    description: "These methods control the value of `this` in functions.",
+    code: `function greet() { return \`Hello, \${this.name}!\`; }
+const obj = { name: "John" };
+console.log(greet.call(obj));`,
+    output: "Hello, John!"
+  },
+  {
+    topicName: "Prototypes",
+    description: "Prototypes allow objects to inherit properties and methods.",
+    code: `function Person(name) { this.name = name; }
+Person.prototype.greet = function() { return \`Hello, \${this.name}!\`; };
+const john = new Person("John");
+console.log(john.greet());`,
+    output: "Hello, John!"
+  },
+  {
+    topicName: "Iterators and Generators",
+    description: "Iterators and generators allow custom iteration behavior.",
+    code: `function* generator() {
+  yield 1;
+  yield 2;
+}
+const gen = generator();
+console.log(gen.next().value);`,
+    output: "1"
+  },
+  {
+    topicName: "Proxy",
+    description: "Proxies allow custom behavior for fundamental operations.",
+    code: `const target = { name: "John" };
+const handler = {
+  get(obj, prop) { return prop in obj ? obj[prop] : "Not found"; }
+};
+const proxy = new Proxy(target, handler);
+console.log(proxy.name, proxy.age);`,
+    output: "John Not found"
   }
 ];
-
-export default jsTopic;
+export default jsTopic
