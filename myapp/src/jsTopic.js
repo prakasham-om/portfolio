@@ -6,10 +6,7 @@ const jsTopic = [
 const y = 20;
 var z = 30;
 console.log(x, y, z);
-//variable is like a container using variable we can store num,string,array,object etc.
-//javascript is  dynamically type because we can change variable "type" in runtime.
-//in javascript there are 3 type of variable
-//let,var,const
+
 
 /* var:-
  var-is also known as global variable,hoisting happens in var and
@@ -330,11 +327,7 @@ console.log(Array.from(a)); //[ 'r', 'a', 'g', 'h', 'a', 'v' ]
     topicName: "Array Methods (map, filter, reduce,forEach)",
     description: "Array methods are used to manipulate arrays.",
     code: `
-    /**
- * in javascript for each nd map method are equal but in map method it can return a new 
-    array after perform all of it's operation
- * it also taken 3 arguments 
- */
+  
 
     let arr=[1,5,11];
 
@@ -396,9 +389,7 @@ for(let i of arr){
 for(let i in arr){
     console.log(i) //[1,2,3,4,5,6,7,8]; index no
 }
-
- 
-    
+  
     `,
     output: "[2, 4, 6]"
   },
