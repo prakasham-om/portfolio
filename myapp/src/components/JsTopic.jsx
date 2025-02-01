@@ -25,7 +25,7 @@ const JsTopic = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 p-2">
       <div className="max-w-4xl mx-auto">
         {/* Search Bar */}
         <div className="mb-8">
@@ -48,7 +48,7 @@ const JsTopic = () => {
           {filteredTopics.length > 0 || !searchQuery ? (
             filteredTopics.length > 0 ? (
               filteredTopics.map((topic, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div key={index} className="bg-white rounded-lg shadow-lg p-2 hover:shadow-xl transition-shadow duration-300">
                   <h3 className="text-2xl font-semibold mb-4">{topic.topicName}</h3>
                   <p className="text-gray-600 mb-4">{topic.description}</p>
 
