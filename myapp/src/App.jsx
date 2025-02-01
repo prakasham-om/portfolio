@@ -15,9 +15,10 @@ const App = () => {
   };
   return (
       <>
-        <Header isOpen={isOpen} toggleMenu={toggleMenu}  />
+        {/* <Header isOpen={isOpen} toggleMenu={toggleMenu}  />
         <Layout />
-        <Footer />
+        <Footer />*/}
+        <h1>Hello</h1>
       </>
   )
 }
