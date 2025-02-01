@@ -64,21 +64,21 @@ const JsTopic = () => {
                       {copied ? "Copied!" : "Copy Code"}
                     </button>
                   </div>
-                  <div>
+                  {/* <div>
                     <h4 className="font-semibold">Expected Output:</h4>
                     <p>{topic.output}</p>
-                  </div>
+                  </div>*/}
                 </div>
               ))
             ) : (
               // If no search term is entered, show all topics
               jsTopic.map((topic, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div key={index} className="bg-white rounded-lg shadow-lg p-2 hover:shadow-xl transition-shadow duration-300">
                   <h3 className="text-2xl font-semibold mb-4">{topic.topicName}</h3>
-                  <p className="text-gray-600 mb-4">{topic.description}</p>
+                  <p className="text-gray-600 mb-2">{topic.description}</p>
 
-                  <div className="mb-4">
-                    <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
+                  <div className="mb-2">
+                    <pre className="bg-gray-800 text-white p-2 rounded-md overflow-x-auto">
                       {topic.code}
                     </pre>
                   <button
