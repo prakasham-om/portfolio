@@ -8,14 +8,6 @@ var z = 30;
 console.log(x, y, z);
 
 
-/* var:-
- var-is also known as global variable,hoisting happens in var and
- we can redeclare and re-assign the value in var
- it's oldest variable means before ES6 it's use know it replace by let
-
- *var is add itself as a window object
- 
- */
 
 var a=10;
 console.log(a); //output 10
@@ -37,47 +29,6 @@ function vardeclar(){
     console.log(i);//12
 }
 
-
-//let :-
-//let-is also known as functional scope or block scope,hoistion not happen
-//we can reassign the value of let we can't redeclare it again     
-//hoisting not happen in let  
-
-let b=10;
-console.log(b)//output 10
-b=15
-console.log(b) //we can update let value but we can't redclare
-{
-    console.log(b)//we can access the outer side declare varible 
-    let sname="sahoo";
-    console.log(sname);
-}
- //console.log(sname); //we can't access the value from the block scope
-
-
-
-//const:-
-/**
- * we can't update and redclare in const
- * hoisting not happen in constant
- */
-
-const c="constant";
-console.log(c);
-
-//question-1:
-//create a varibale of type string and try to add numbr to it
-
-let num="23";
-let num2=6;
-let add=num+num2
-console.log(add)
-
-//q2. find typeof the add from above
-
-console.log(typeof(add))
-
-//q 3. can a cost of object in js can you change it to hold a number letter.--> ans :no
 `,
     output: "10 20 30"
   },
@@ -85,12 +36,8 @@ console.log(typeof(add))
     topicName: "Data Types",
     description: "JavaScript has primitive data types like string, number, boolean, null, undefined, and symbol.",
     code: `
-    /**datatype is used to store which type data store with the varibale
- * premitive datatype -7 type datatypes(null,number,symbol,string,boolean,bigint,undefined)
- * 
- * non premitive datatype is object(object have key and value pair)
- */
-//premitive :-
+
+
 let a=null; //null
 let b=261523; //num
 let c=Symbol("i am a symbol"); //symbol
@@ -126,18 +73,7 @@ data["mob"]="8787665";
 console.log(data)
 //data is a refence of object 
 
-//q 2. create a 5 word dictionary
 
-const dictionary={
-    hello:"greeting message",
-    hello1:"greeting message",
-    hello2:"greeting message",
-    hello3:"greeting message",
-    hello4:"greeting message"
-
-}
-
-console.log(dictionary.hello)
     `,
     output: "string number boolean object undefined"
   },
@@ -160,9 +96,7 @@ findOddEven(37)
 
 
 /**
- * Anonymous function / function expression 
-The anonymous functions don’t have names.
-They need to be tied to something: variable or an event to run.
+ * Anonymous function / function expression : variable or an event to run.
  */
 
 let findoddeven=function (number){
@@ -467,28 +401,8 @@ let _promise=new Promise((resolve,reject)=>{ //resolve and reject are  function
 _promise.then((item)=>{console.log(item)}).catch((err)=>{
     console.log(err);
 })
-
-
-
-
-//simple example of promise
-let add=new Promise((resolve,reject)=>{
-    let a=1+5;
-    if(a===6){
-     resolve(`suceesful of add a= ${a}`)
- 
-    }
-    else{
-     reject(`failed to add`)
-    }
- })
- 
- add.then((message)=>{
-     console.log(message)
- }).catch((message)=>{
-     console.log(message)
- })
-    `,
+`
+  ,
     output: "Done! (after 1 second)"
   },
   {
