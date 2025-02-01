@@ -20,7 +20,7 @@ const JsTopic = () => {
   };
 
   // Filter topics based on search query
-  const filteredTopics = jsTopics.filter((topic) =>
+  const filteredTopics = jsTopic.filter((topic) =>
     topic.topicName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -72,7 +72,7 @@ const JsTopic = () => {
               ))
             ) : (
               // If no search term is entered, show all topics
-              jsTopics.map((topic, index) => (
+              jsTopic.map((topic, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                   <h3 className="text-2xl font-semibold mb-4">{topic.topicName}</h3>
                   <p className="text-gray-600 mb-4">{topic.description}</p>
