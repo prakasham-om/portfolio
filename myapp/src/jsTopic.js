@@ -1,4 +1,4 @@
-const jsTopics = [
+const jsTopic = [
   {
     topicName: "Variables and Data Types",
     description: "In JavaScript, variables can hold different types of values, such as numbers, strings, and objects. JavaScript has dynamic typing, meaning variable types are determined at runtime.",
@@ -248,4 +248,4 @@ const jsTopics = [
   }
 ];
 
-export default jsTopics;
+export default jsTopic;
