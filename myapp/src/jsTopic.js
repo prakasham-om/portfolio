@@ -68,7 +68,7 @@ let [[x,y],[z,l],{hello,aaa}]=arr;
 
 console.log(hello) //sbsj
 `,
-    output: "1 2",sbsj
+    output: "1 2" 
   },
   {
     topicName: "Template Literals",
