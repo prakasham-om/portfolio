@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-// Define custom CSS for syntax highlighting
+// Define custom CSS for syntax highlighting with vibrant colors
 const syntaxStyles = {
-  keyword: 'text-blue-500 font-semibold',
+  keyword: 'text-blue-500 font-bold',
   string: 'text-green-400',
-  number: 'text-red-400',
-  variable: 'text-yellow-300',
+  number: 'text-orange-400',
+  variable: 'text-yellow-500',
   comment: 'text-gray-500 italic',
+  function: 'text-purple-400 font-semibold',
+  operator: 'text-pink-500',
 };
 
 const CodeEditor = () => {
@@ -48,7 +50,7 @@ const CodeEditor = () => {
 
   const executeCode = (code) => {
     try {
-      // Create a new Function that can safely execute the code
+      // Create a new function from the code and execute it
       const runCode = new Function(code);
       const result = runCode(); // Execute the code
       setOutput(result);
@@ -59,11 +61,13 @@ const CodeEditor = () => {
 
   // Function to highlight syntax using regular expressions
   const highlightSyntax = (code) => {
-    const keywords = /\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|console|log)\b/g;
+    const keywords = /\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|console|log|switch|case|break)\b/g;
     const strings = /'([^']*?)'|"([^"]*?)"/g;
     const numbers = /\b\d+\b/g;
     const variables = /\b[a-zA-Z_$][a-zA-Z_$0-9]*\b/g;
     const comments = /\/\/[^\n]*/g;
+    const functions = /\b\w+(?=\()/g;
+    const operators = /[+\-*\/=%&|\^!<>]=?/g;
 
     // Apply the syntax styles to the matched parts
     code = code.replace(keywords, (match) => `<span class="${syntaxStyles.keyword}">${match}</span>`);
@@ -77,17 +81,19 @@ const CodeEditor = () => {
       return match;
     });
     code = code.replace(comments, (match) => `<span class="${syntaxStyles.comment}">${match}</span>`);
+    code = code.replace(functions, (match) => `<span class="${syntaxStyles.function}">${match}</span>`);
+    code = code.replace(operators, (match) => `<span class="${syntaxStyles.operator}">${match}</span>`);
 
     return code;
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex items-center justify-center">
-      <div className="bg-white shadow-xl rounded-lg w-full max-w-screen-xl p-4">
-        <h1 className="text-3xl font-semibold text-gray-800 mb-4">JavaScript Code Editor</h1>
-        <div className="space-y-4">
+    <div className="min-h-screen bg-gradient-to-r from-purple-600 to-blue-400 p-6 flex items-center justify-center">
+      <div className="bg-white shadow-xl rounded-lg w-full max-w-screen-xl p-6">
+        <h1 className="text-3xl font-semibold text-gray-800 mb-6">JavaScript Code Editor</h1>
+        <div className="space-y-6">
           {topics.map((topic, index) => (
-            <div key={index} className="bg-gray-50 p-4 rounded-lg shadow-md">
+            <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md">
               <h2 className="text-lg font-semibold text-gray-800 mb-2">{topic.title}</h2>
               <p className="text-gray-600 text-sm mb-4">{topic.description}</p>
 
