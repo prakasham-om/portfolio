@@ -52,7 +52,7 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 mb-8"
+      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 "
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
         {/* Company and Project carousel for small devices */}
