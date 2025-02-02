@@ -1,4 +1,4 @@
-const jsTopic = [
+const topics = [
   {
     topicName: "Variables (let, const, var)",
     description: "Variables are used to store data. `let` and `const` are block-scoped, while `var` is function-scoped.",
@@ -612,4 +612,4 @@ console.log(proxy.name, proxy.age);`,
     output: "John Not found"
   }
 ];
-export default jsTopic
+export default topics
