@@ -58,8 +58,8 @@ function Experience() {
       className="p-4 sm:p-8 bg-gradient-to-r from-blue-500 to-indigo-600 mb-4"
     >
       <div className="flex flex-col items-center space-y-8">
-        {/* Company Carousel for small devices */}
-        <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-4 sm:p-6 space-y-6 hover:shadow-2xl transition duration-300">
+        {/* Company and Project carousel for small devices */}
+        <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-4 sm:p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
           {/* Company Logo and Title */}
           <div className="flex items-center space-x-4">
             <img
@@ -82,7 +82,7 @@ function Experience() {
             {experiences[currentCompanyIndex].description}
           </p>
 
-          {/* Project Carousel for small devices */}
+          {/* Project Carousel */}
           <div className="mt-4 sm:mt-5">
             <h4 className="text-sm sm:text-lg font-semibold text-gray-800">
               {
@@ -97,9 +97,21 @@ function Experience() {
               }
             </p>
           </div>
+
+          {/* Dot Indicators for the Project Carousel */}
+          <div className="flex justify-center space-x-2 mt-4">
+            {experiences[currentCompanyIndex].projects.map((_, index) => (
+              <span
+                key={index}
+                className={`h-2 w-2 rounded-full ${
+                  currentProjectIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+                }`}
+              ></span>
+            ))}
+          </div>
         </div>
 
-        {/* For medium and above devices, show all info in a single card */}
+        {/* For medium and above devices, show a single detailed card */}
         <div className="hidden md:block max-w-4xl w-full bg-white shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300">
           {/* Company Logo and Title */}
           <div className="flex items-center space-x-4">
