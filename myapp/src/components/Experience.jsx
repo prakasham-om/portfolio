@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cmpImg from '../assets/download.jpeg';  // Example logo
 
-// Sample data for multiple companies and projects
 function Experience() {
   const [currentCompanyIndex, setCurrentCompanyIndex] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -29,7 +28,6 @@ function Experience() {
     // Add more companies and projects here
   ];
 
-  // Auto slide companies and projects
   useEffect(() => {
     const companyInterval = setInterval(() => {
       setCurrentCompanyIndex((prevIndex) =>
@@ -45,7 +43,6 @@ function Experience() {
       );
     }, 5000); // Slide every 5 seconds
 
-    // Cleanup intervals on component unmount
     return () => {
       clearInterval(companyInterval);
       clearInterval(projectInterval);
@@ -55,46 +52,40 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="p-4 sm:p-8 bg-gradient-to-r from-blue-500 to-indigo-600 mb-4"
+      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-blue-500 to-indigo-600 mb-8"
     >
-      <div className="flex flex-col items-center space-y-8">
+      <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
         {/* Company and Project carousel for small devices */}
-        <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-4 sm:p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
+        <div className="max-w-full sm:max-w-lg w-full bg-white shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
           {/* Company Logo and Title */}
           <div className="flex items-center space-x-4">
             <img
               src={experiences[currentCompanyIndex].logo}
               alt={`${experiences[currentCompanyIndex].company} Logo`}
-              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover"
+              className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
             />
             <div>
-              <h4 className="text-sm sm:text-lg font-semibold text-gray-800">
+              <h4 className="text-xl font-semibold text-gray-800">
                 {experiences[currentCompanyIndex].company}
               </h4>
-              <p className="text-sm sm:text-lg text-gray-600">
+              <p className="text-md text-gray-600">
                 {experiences[currentCompanyIndex].duration}
               </p>
             </div>
           </div>
 
           {/* Job Description */}
-          <p className="text-xs sm:text-sm text-gray-700">
+          <p className="text-sm text-gray-700 leading-relaxed">
             {experiences[currentCompanyIndex].description}
           </p>
 
           {/* Project Carousel */}
-          <div className="mt-4 sm:mt-5">
-            <h4 className="text-sm sm:text-lg font-semibold text-gray-800">
-              {
-                experiences[currentCompanyIndex].projects[currentProjectIndex]
-                  .name
-              }
+          <div className="mt-4">
+            <h4 className="text-lg font-semibold text-gray-800">
+              {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
             </h4>
-            <p className="text-xs sm:text-sm text-gray-600">
-              {
-                experiences[currentCompanyIndex].projects[currentProjectIndex]
-                  .description
-              }
+            <p className="text-sm text-gray-600">
+              {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
             </p>
           </div>
 
@@ -112,42 +103,38 @@ function Experience() {
         </div>
 
         {/* For medium and above devices, show a single detailed card */}
-        <div className="hidden md:block max-w-4xl w-full bg-white shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300">
+        <div className="hidden md:block max-w-7xl w-full bg-white shadow-lg rounded-lg p-8 space-y-8 hover:shadow-2xl transition duration-300">
           {/* Company Logo and Title */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
             <img
               src={experiences[currentCompanyIndex].logo}
               alt={`${experiences[currentCompanyIndex].company} Logo`}
-              className="h-12 w-12 rounded-full object-cover"
+              className="h-16 w-16 rounded-full object-cover"
             />
             <div>
-              <h4 className="text-lg font-semibold text-gray-800">
+              <h4 className="text-2xl font-semibold text-gray-800">
                 {experiences[currentCompanyIndex].company}
               </h4>
-              <p className="text-lg text-gray-600">
+              <p className="text-xl text-gray-600">
                 {experiences[currentCompanyIndex].duration}
               </p>
             </div>
           </div>
 
           {/* Job Description */}
-          <p className="text-sm text-gray-700">
+          <p className="text-lg text-gray-700 leading-relaxed">
             {experiences[currentCompanyIndex].description}
           </p>
 
           {/* Display all projects in a list for md and above */}
-          <div className="mt-5">
-            <h5 className="text-md font-semibold text-gray-800">Projects</h5>
-            <div className="space-y-4">
-              {experiences[currentCompanyIndex].projects.map((project, index) => (
-                <div key={index}>
-                  <h6 className="text-sm font-semibold text-gray-800">
-                    {project.name}
-                  </h6>
-                  <p className="text-sm text-gray-600">{project.description}</p>
-                </div>
-              ))}
-            </div>
+          <div className="mt-6 space-y-6">
+            <h5 className="text-xl font-semibold text-gray-800">Projects</h5>
+            {experiences[currentCompanyIndex].projects.map((project, index) => (
+              <div key={index}>
+                <h6 className="text-lg font-semibold text-gray-800">{project.name}</h6>
+                <p className="text-md text-gray-600">{project.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -156,4 +143,4 @@ function Experience() {
 }
 
 export default Experience;
-          
+              
