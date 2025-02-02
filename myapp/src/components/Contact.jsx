@@ -57,9 +57,12 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="p-8 max-w-3xl mx-auto bg-white shadow-lg rounded-lg">
-      <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">Contact Me</h2>
-      <p className="mb-6 text-center text-gray-600 flex justify-center items-center space-x-2">
+    <section
+      id="contact"
+      className="p-8 max-w-3xl mx-auto bg-gradient-to-b from-gray-600 to-gray-800 shadow-lg rounded-lg"
+    >
+      <h2 className="text-3xl font-semibold mb-6 text-center text-white">Contact Me</h2>
+      <p className="mb-6 text-center text-gray-300 flex justify-center items-center space-x-2">
         <FaEnvelope className="text-red-500 text-lg" />
         <span>Reach out to me via email</span>
       </p>
@@ -67,7 +70,7 @@ function Contact() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="relative mb-4">
           <label htmlFor="email" className="absolute left-4 top-2 text-gray-500">
-            <FaEnvelope />
+            <FaEnvelope className="text-xl" />
           </label>
           <input
             type="email"
@@ -84,7 +87,7 @@ function Contact() {
 
         <div className="relative mb-4">
           <label htmlFor="name" className="absolute left-4 top-2 text-gray-500">
-            <FaUser />
+            <FaUser className="text-xl" />
           </label>
           <input
             type="text"
@@ -101,7 +104,7 @@ function Contact() {
 
         <div className="relative mb-6">
           <label htmlFor="message" className="absolute left-4 top-2 text-gray-500">
-            <FaPaperPlane />
+            <FaPaperPlane className="text-xl" />
           </label>
           <textarea
             id="message"
@@ -146,4 +149,4 @@ function Contact() {
 }
 
 export default Contact;
-          
+                                                                                     
