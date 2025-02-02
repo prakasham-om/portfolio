@@ -63,7 +63,7 @@ function Contact() {
     >
       <h2 className="text-3xl font-semibold mb-6 text-center text-white">Contact Me</h2>
       <p className="mb-6 text-center text-gray-300 flex justify-center items-center space-x-2">
-        <FaEnvelope className="text-red-500 text-lg" />
+        <FaEnvelope className="text-red-400 text-lg" />
         <span>Reach out to me via email</span>
       </p>
 
