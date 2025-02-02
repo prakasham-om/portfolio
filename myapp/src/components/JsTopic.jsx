@@ -16,39 +16,43 @@ const CodeEditor = () => {
       title: "Variables",
       description: "Learn how to declare variables in JavaScript.",
       code: `let x = 10;\nconst y = 20;\nvar z = x + y;\nconsole.log(z);`,
+      output: '',
     },
     {
       title: "Functions",
       description: "Functions are reusable blocks of code.",
       code: `function greet(name) {\n  return 'Hello, ' + name;\n}\nconsole.log(greet('Alice'));`,
+      output: '',
     },
     {
       title: "Loops",
       description: "Loops allow you to repeat a block of code multiple times.",
       code: `for (let i = 0; i < 5; i++) {\n  console.log(i);\n}`,
+      output: '',
     },
     {
       title: "Array Methods",
       description: "Learn how to use common array methods in JavaScript.",
       code: `const arr = [1, 2, 3, 4, 5];\nconsole.log(arr.map(x => x * 2));`,
+      output: '',
     },
     {
       title: "Objects",
       description: "Objects are collections of key-value pairs in JavaScript.",
       code: `const person = {\n  name: 'John',\n  age: 30,\n  greet() {\n    return 'Hello, ' + this.name;\n  }\n};\nconsole.log(person.greet());`,
+      output: '',
     },
   ]);
-
-  const [output, setOutput] = useState('');
 
   const handleCodeChange = (index, newCode) => {
     const updatedTopics = [...topics];
     updatedTopics[index].code = newCode;
+    updatedTopics[index].output = ''; // Reset output when code changes
     setTopics(updatedTopics);
   };
 
   // Mock console.log to capture output
-  const captureConsoleOutput = () => {
+  const captureConsoleOutput = (index) => {
     let output = '';
     const originalConsoleLog = console.log;
 
@@ -60,9 +64,13 @@ const CodeEditor = () => {
       execute: (code) => {
         try {
           new Function(code)(); // Execute the code dynamically
-          setOutput(output);
+          const updatedTopics = [...topics];
+          updatedTopics[index].output = output; // Store the output for this topic
+          setTopics(updatedTopics);
         } catch (error) {
-          setOutput(`Error: ${error.message}`);
+          const updatedTopics = [...topics];
+          updatedTopics[index].output = `Error: ${error.message}`;
+          setTopics(updatedTopics);
         } finally {
           console.log = originalConsoleLog; // Restore original console.log
         }
@@ -112,31 +120,22 @@ const CodeEditor = () => {
 
               {/* Run Button with Font Awesome Play Icon */}
               <button
-                onClick={() => captureConsoleOutput().execute(topic.code)}
+                onClick={() => captureConsoleOutput(index).execute(topic.code)}
                 className="absolute right-4 top-4 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition duration-200"
               >
                 <FaPlay />
               </button>
 
-              {/* Code Preview */}
-              <div className="mt-4">
-                <h3 className="text-white text-lg mb-2">Preview:</h3>
-                <pre
-                  className="text-gray-200 bg-gray-800 p-4 rounded-md"
-                  dangerouslySetInnerHTML={{ __html: highlightSyntax(topic.code) }}
-                />
-              </div>
+              {/* Output Below Each Code Editor */}
+              {topic.output && (
+                <div className="mt-4 p-4 bg-gray-600 rounded-md text-white">
+                  <h3 className="text-lg">Output:</h3>
+                  <pre>{topic.output}</pre>
+                </div>
+              )}
             </div>
           ))}
         </div>
-
-        {/* Global Output (Shows last executed output from any topic) */}
-        {output && (
-          <div className="mt-6 p-4 bg-gray-700 rounded-md text-white">
-            <h3 className="text-lg">Output:</h3>
-            <pre>{output}</pre>
-          </div>
-        )}
       </div>
     </div>
   );
