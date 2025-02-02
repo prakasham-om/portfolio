@@ -71,12 +71,12 @@ const CodeEditor = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 p-8 flex items-center justify-center">
-      <div className="bg-gray-800 p-6 rounded-lg w-full max-w-4xl shadow-lg">
-        <h1 className="text-white text-2xl mb-6">JavaScript Code Editor</h1>
+    <div className="min-h-screen bg-gray-900 p-4 flex items-center justify-center">
+      <div className="bg-gray-800 p-2 rounded-lg w-full max-w-4xl shadow-lg">
+        <h1 className="text-white text-2xl mb-6">JavaScript</h1>
         <div className="space-y-6">
           {topicsState.map((topic, index) => (
-            <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-md relative">
+            <div key={index} className="bg-gray-700 p-2 rounded-lg shadow-md relative">
               <h2 className="text-white text-xl mb-2">{topic.topicName}</h2>
               <p className="text-gray-400 mb-4">{topic.description}</p>
 
@@ -84,21 +84,21 @@ const CodeEditor = () => {
               <textarea
                 value={topic.code}
                 onChange={(e) => handleCodeChange(index, e.target.value)}
-                className="w-full h-40 p-4 text-white bg-gray-800 rounded-md border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full h-40 p-2 text-white bg-gray-800 rounded-md border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Write your code here..."
               />
 
               {/* Run Button with Font Awesome Play Icon */}
               <button
                 onClick={() => captureConsoleOutput(index).execute(topic.code)}
-                className="absolute right-4 top-4 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition duration-200"
+                className="absolute right-4 top-4 p-2 bg-gray-200 text-white rounded-md hover:bg-blue-500 transition duration-200"
               >
                 <FaPlay />
               </button>
 
               {/* Output Below Each Code Editor */}
               {topic.output && (
-                <div className="mt-4 p-4 bg-gray-600 rounded-md text-white">
+                <div className="mt-4 p-2 bg-gray-600 rounded-md text-white">
                   <h3 className="text-lg">Output:</h3>
                   <pre>{topic.output}</pre>
                 </div>
