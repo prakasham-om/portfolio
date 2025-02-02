@@ -16,9 +16,7 @@ function Experience() {
         {
           name: "KYP (Know Your Provider)",
           description:
-            "All-in-one solution designed to streamline the process of screening, enrolling, and monitoring service providers for their eligibility to process claims. It helps organizations efficiently manage provider data, ensuring they meet the necessary requirements for claims submission. The system simplifies the workflow by combining multiple tasks—eligibility checks, enrollment processes, and ongoing monitoring—into one easy-to-use platform. This helps reduce errors, save time, and ensure that only eligible providers are involved in claim processing.
-
-            ",
+            "All-in-one solution designed to streamline the process of screening, enrolling, and monitoring service providers for their eligibility to process claims. It helps organizations efficiently manage provider data, ensuring they meet the necessary requirements for claims submission. The system simplifies the workflow by combining multiple tasks—eligibility checks, enrollment processes, and ongoing monitoring—into one easy-to-use platform. This helps reduce errors, save time, and ensure that only eligible providers are involved in claim processing",
         },
         {
           name: "Product and Seller Management",
