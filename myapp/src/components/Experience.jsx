@@ -52,11 +52,11 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-blue-500 to-indigo-600 mb-8"
+      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 mb-8"
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
         {/* Company and Project carousel for small devices */}
-        <div className="max-w-full sm:max-w-lg w-full bg-white shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
+        <div className="max-w-full sm:max-w-lg w-full bg-gray-600 shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
           {/* Company Logo and Title */}
           <div className="flex items-center space-x-4">
             <img
@@ -65,26 +65,26 @@ function Experience() {
               className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
             />
             <div>
-              <h4 className="text-xl font-semibold text-gray-800">
+              <h4 className="text-xl font-semibold text-white">
                 {experiences[currentCompanyIndex].company}
               </h4>
-              <p className="text-md text-gray-600">
+              <p className="text-md text-white">
                 {experiences[currentCompanyIndex].duration}
               </p>
             </div>
           </div>
 
           {/* Job Description */}
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-white leading-relaxed">
             {experiences[currentCompanyIndex].description}
           </p>
 
           {/* Project Carousel */}
           <div className="mt-4">
-            <h4 className="text-lg font-semibold text-gray-800">
+            <h4 className="text-lg font-semibold text-white">
               {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
             </h4>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-white">
               {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
             </p>
           </div>
