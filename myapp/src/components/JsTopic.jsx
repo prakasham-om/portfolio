@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlay } from 'react-icons/fa'; // Import the FaPlay icon from react-icons
-import topics from '../jsTopic'
+import topics from '../jsTopic'; // Assuming topics is imported correctly
+
 // Define custom CSS for syntax highlighting
 const syntaxStyles = {
   keyword: 'text-blue-500 font-bold',
@@ -11,11 +12,10 @@ const syntaxStyles = {
 };
 
 const CodeEditor = () => {
-  const [topics, setTopics] = useState(topics)
-    
+  const [topicsState, setTopics] = useState(topics); // Ensure state is correctly initialized
 
   const handleCodeChange = (index, newCode) => {
-    const updatedTopics = [...topics];
+    const updatedTopics = [...topicsState];
     updatedTopics[index].code = newCode;
     updatedTopics[index].output = ''; // Reset output when code changes
     setTopics(updatedTopics);
@@ -34,13 +34,13 @@ const CodeEditor = () => {
       execute: (code) => {
         try {
           new Function(code)(); // Execute the code dynamically
-          const updatedTopics = [...topics];
+          const updatedTopics = [...topicsState];
           updatedTopics[index].output = output; // Store the output for this topic
-          setTopics(updatedTopics);
+          setTopics(updatedTopics); // Update state after capturing the output
         } catch (error) {
-          const updatedTopics = [...topics];
+          const updatedTopics = [...topicsState];
           updatedTopics[index].output = `Error: ${error.message}`;
-          setTopics(updatedTopics);
+          setTopics(updatedTopics); // Update state with error
         } finally {
           console.log = originalConsoleLog; // Restore original console.log
         }
@@ -75,7 +75,7 @@ const CodeEditor = () => {
       <div className="bg-gray-800 p-6 rounded-lg w-full max-w-4xl shadow-lg">
         <h1 className="text-white text-2xl mb-6">JavaScript Code Editor</h1>
         <div className="space-y-6">
-          {topics.map((topic, index) => (
+          {topicsState.map((topic, index) => (
             <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-md relative">
               <h2 className="text-white text-xl mb-2">{topic.topicName}</h2>
               <p className="text-gray-400 mb-4">{topic.description}</p>
@@ -112,3 +112,4 @@ const CodeEditor = () => {
 };
 
 export default CodeEditor;
+      
