@@ -67,7 +67,7 @@ function Contact() {
         <span>Reach out to me via email</span>
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6 bg-transparent">
         <div className="relative mb-4">
           <label htmlFor="email" className="absolute left-4 top-2 text-gray-500">
             <FaEnvelope className="text-xl" />
