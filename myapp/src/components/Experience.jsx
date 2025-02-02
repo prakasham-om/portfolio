@@ -3,7 +3,11 @@ import cmpImg from '../assets/download.jpeg';  // Example logo
 import Slider from "react-slick"; // Import Slick Carousel
 
 // Sample data for multiple companies and projects
-const experiences = [
+
+
+function Experience() {
+  // Settings for carousel
+  const experiences = [
   {
     company: "ENSS TECHNOLOGIES PVT LTD.",
     duration: "Nov 2021 - Present",
@@ -25,9 +29,6 @@ const experiences = [
   },
   // Add more companies and projects here
 ];
-
-function Experience() {
-  // Settings for carousel
   const companySettings = {
     infinite: true,
     slidesToShow: 1,
