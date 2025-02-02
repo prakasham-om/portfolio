@@ -31,7 +31,7 @@ function About() {
   });
 
   return (
-    <section id="about" className="py-16 px-8 md:px-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white min-h-screen flex flex-col md:flex-row items-center justify-center md:space-x-12">
+    <section id="about" className="py-16 px-8 md:px-20 bg-gradient-to-r from-gray-800 to-gray-900 text-white min-h-screen flex flex-col md:flex-row items-center justify-center md:space-x-12">
       {/* Left side - Profile Card */}
       <div className="flex justify-center md:justify-start items-center mb-10 md:mb-0 w-full md:w-1/3">
         <div className="bg-gray-700 text-yellow-800 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out max-w-xs w-full p-6 text-center">
@@ -67,7 +67,7 @@ function About() {
           I’m Prakash, a passionate software developer with over 3 years of experience in creating modern web applications. My expertise spans across both front-end and back-end development, specializing in **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**.
         </animated.p>
 
-        <animated.p style={fadeIn} className="text-lg leading-relaxed mb-6">
+        <animated.p style={fadeIn} className="text-lg leading-relaxed mb-6 max-w-prose">
           I believe in crafting scalable and efficient solutions, whether it's optimizing user interfaces, building robust APIs, or deploying apps to the cloud. I'm constantly learning new technologies to stay at the cutting edge and deliver the best outcomes for projects.
         </animated.p>
 
