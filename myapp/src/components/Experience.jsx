@@ -27,11 +27,11 @@ function Experience() {
     },
     // Additional companies here
     {
-      company: "ABC Corp",
-      duration: "May 2020 - Oct 2021",
+      company: "Greet lab",
+      duration: "jan 2021 - Oct 2021",
       logo: cmpImg,
       description:
-        "As a Software Engineer at ABC Corp, I contributed to the development of key projects, utilizing technologies like Node.js, React, and MongoDB. I focused on building efficient and scalable solutions for our clients.",
+        "As a Software Engineer intern  at Greetlab, I learned and contributed to the development of key projects, utilizing technologies like Node.js, React, and MongoDB and collaboration with the Smart team",
       projects: [
         {
           name: "Internal Dashboard",
@@ -81,7 +81,7 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 h-full "
+      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 min-h-screen "
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
         {/* Mobile view with company logo and carousel for projects */}
