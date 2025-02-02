@@ -1,109 +1,105 @@
 import React, { useState } from 'react';
-import { FaCopy } from 'react-icons/fa'; // Icon for the Copy button
-import jsTopic from '../jsTopic'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+const CodeEditor = () => {
+  const [topics, setTopics] = useState([
+    {
+      title: "Variables",
+      description: "Learn how to declare variables in JavaScript.",
+      code: `let x = 10;\nconst y = 20;\nvar z = x + y;\nconsole.log(z);`,
+    },
+    {
+      title: "Functions",
+      description: "Functions are reusable blocks of code.",
+      code: `function greet(name) {\n  return 'Hello, ' + name;\n}\nconsole.log(greet('Alice'));`,
+    },
+    {
+      title: "Loops",
+      description: "Loops allow you to repeat a block of code multiple times.",
+      code: `for (let i = 0; i < 5; i++) {\n  console.log(i);\n}`,
+    },
+    {
+      title: "Array Methods",
+      description: "Learn how to use common array methods in JavaScript.",
+      code: `const arr = [1, 2, 3, 4, 5];\nconsole.log(arr.map(x => x * 2));`,
+    },
+    {
+      title: "Objects",
+      description: "Objects are collections of key-value pairs in JavaScript.",
+      code: `const person = {\n  name: 'John',\n  age: 30,\n  greet() {\n    return 'Hello, ' + this.name;\n  }\n};\nconsole.log(person.greet());`,
+    },
+    // Add more topics as needed
+  ]);
 
-const JsTopic = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [copied, setCopied] = useState(false);
+  const [output, setOutput] = useState('');
 
-  // Handle search input change
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
+  const handleCodeChange = (index, newCode) => {
+    const updatedTopics = [...topics];
+    updatedTopics[index].code = newCode;
+    setTopics(updatedTopics);
   };
 
-  // Handle copying code to clipboard
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
+  const executeCode = (code) => {
+    try {
+      const result = eval(code); // Execute the code for this topic
+      setOutput(result);
+    } catch (error) {
+      setOutput(`Error: ${error.message}`);
+    }
   };
-
-  // Filter topics based on search query
-  const filteredTopics = jsTopic.filter((topic) =>
-    topic.topicName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
-    <div className="min-h-screen bg-gray-50 p-2">
-      <div className="max-w-4xl mx-auto">
-        {/* Search Bar */}
-        <div className="mb-8">
-          <input
-            type="text"
-            placeholder="Search Topics..."
-            value={searchQuery}
-            onChange={handleSearch}
-            className="w-full p-4 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+    <div className="min-h-screen bg-gray-900 p-8 flex items-center justify-center">
+      <div className="bg-gray-800 p-6 rounded-lg w-full max-w-4xl shadow-lg">
+        <h1 className="text-white text-2xl mb-6">JavaScript Code Editor</h1>
+        <div className="space-y-6">
+          {topics.map((topic, index) => (
+            <div
+              key={index}
+              className="bg-gray-700 p-6 rounded-lg shadow-md"
+            >
+              <h2 className="text-white text-xl mb-2">{topic.title}</h2>
+              <p className="text-gray-400 mb-4">{topic.description}</p>
+
+              {/* Code Editor (Textarea) */}
+              <textarea
+                value={topic.code}
+                onChange={(e) => handleCodeChange(index, e.target.value)}
+                className="w-full h-40 p-4 text-white bg-gray-800 rounded-md border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Write your code here..."
+              />
+
+              {/* Run Button */}
+              <button
+                onClick={() => executeCode(topic.code)}
+                className="mt-4 p-2 bg-blue-500 text-white rounded-md"
+              >
+                Run Code
+              </button>
+
+              {/* Code Preview */}
+              <div className="mt-4">
+                <h3 className="text-white text-lg mb-2">Preview:</h3>
+                <SyntaxHighlighter language="javascript" style={docco}>
+                  {topic.code}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* If no topics match the search query, display a message */}
-        {searchQuery && filteredTopics.length === 0 && (
-          <p className="text-center text-xl text-gray-600">Sorry, we are in progress mode.</p>
+        {/* Global Output (Shows last executed output from any topic) */}
+        {output && (
+          <div className="mt-6 p-4 bg-gray-700 rounded-md text-white">
+            <h3 className="text-lg">Output:</h3>
+            <pre>{output}</pre>
+          </div>
         )}
-
-        {/* Display filtered topics or all topics */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-          {filteredTopics.length > 0 || !searchQuery ? (
-            filteredTopics.length > 0 ? (
-              filteredTopics.map((topic, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-2 hover:shadow-xl transition-shadow duration-300">
-                  <h3 className="text-2xl font-semibold mb-4">{topic.topicName}</h3>
-                  <p className="text-gray-600 mb-4">{topic.description}</p>
-
-                  <div className="mb-4">
-                    <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
-                      {topic.code}
-                    </pre>
-                    <button
-                      onClick={() => handleCopy(topic.code)}
-                      className="mt-2 text-white bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 flex items-center justify-center transition-all duration-200"
-                    >
-                      <FaCopy className="mr-2" />
-                      {copied ? "Copied!" : "Copy Code"}
-                    </button>
-                  </div>
-                  {/* <div>
-                    <h4 className="font-semibold">Expected Output:</h4>
-                    <p>{topic.output}</p>
-                  </div>*/}
-                </div>
-              ))
-            ) : (
-              // If no search term is entered, show all topics
-              jsTopic.map((topic, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-2 hover:shadow-xl transition-shadow duration-300">
-                  <h3 className="text-2xl font-semibold mb-4">{topic.topicName}</h3>
-                  <p className="text-gray-600 mb-2">{topic.description}</p>
-
-                  <div className="mb-2">
-                    <pre className="bg-gray-800 text-white p-2 rounded-md overflow-x-auto">
-                      {topic.code}
-                    </pre>
-                  <button
-                      onClick={() => handleCopy(topic.code)}
-                      className="mt-2 text-white bg-blue-500 hover:bg-blue-600 rounded px-4 py-2 flex items-center justify-center transition-all duration-200"
-                    >
-                      <FaCopy className="mr-2" />
-                      {copied ? "Copied!" : "Copy Code"}
-                    </button>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Expected Output:</h4>
-                    <p>{topic.output}</p>
-                  </div>
-                </div>
-              ))
-            )
-          ) : (
-            <p className="text-center text-xl text-gray-600">Start typing to search for topics...</p>
-          )}
-        </div>
       </div>
     </div>
   );
 };
 
-export default JsTopic;
-                  
+export default CodeEditor;
+                           
