@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { FaPlay } from 'react-icons/fa'; // Import the FaPlay icon from react-icons
 
 // Define custom CSS for syntax highlighting
 const syntaxStyles = {
@@ -116,7 +115,7 @@ const CodeEditor = () => {
                 onClick={() => captureConsoleOutput().execute(topic.code)}
                 className="absolute right-4 top-4 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition duration-200"
               >
-                <FontAwesomeIcon icon={faPlay} />
+                <FaPlay />
               </button>
 
               {/* Code Preview */}
