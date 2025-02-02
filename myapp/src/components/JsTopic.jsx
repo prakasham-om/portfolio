@@ -77,7 +77,7 @@ const CodeEditor = () => {
         <div className="space-y-6">
           {topics.map((topic, index) => (
             <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-md relative">
-              <h2 className="text-white text-xl mb-2">{topic.title}</h2>
+              <h2 className="text-white text-xl mb-2">{topic.topicName}</h2>
               <p className="text-gray-400 mb-4">{topic.description}</p>
 
               {/* Code Editor (Textarea) */}
