@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaPlay } from 'react-icons/fa'; // Import the FaPlay icon from react-icons
-
+import topics from '../jsTopic'
 // Define custom CSS for syntax highlighting
 const syntaxStyles = {
   keyword: 'text-blue-500 font-bold',
@@ -11,38 +11,8 @@ const syntaxStyles = {
 };
 
 const CodeEditor = () => {
-  const [topics, setTopics] = useState([
-    {
-      title: "Variables",
-      description: "Learn how to declare variables in JavaScript.",
-      code: `let x = 10;\nconst y = 20;\nvar z = x + y;\nconsole.log(z);`,
-      output: '',
-    },
-    {
-      title: "Functions",
-      description: "Functions are reusable blocks of code.",
-      code: `function greet(name) {\n  return 'Hello, ' + name;\n}\nconsole.log(greet('Alice'));`,
-      output: '',
-    },
-    {
-      title: "Loops",
-      description: "Loops allow you to repeat a block of code multiple times.",
-      code: `for (let i = 0; i < 5; i++) {\n  console.log(i);\n}`,
-      output: '',
-    },
-    {
-      title: "Array Methods",
-      description: "Learn how to use common array methods in JavaScript.",
-      code: `const arr = [1, 2, 3, 4, 5];\nconsole.log(arr.map(x => x * 2));`,
-      output: '',
-    },
-    {
-      title: "Objects",
-      description: "Objects are collections of key-value pairs in JavaScript.",
-      code: `const person = {\n  name: 'John',\n  age: 30,\n  greet() {\n    return 'Hello, ' + this.name;\n  }\n};\nconsole.log(person.greet());`,
-      output: '',
-    },
-  ]);
+  const [topics, setTopics] = useState(topics)
+    
 
   const handleCodeChange = (index, newCode) => {
     const updatedTopics = [...topics];
