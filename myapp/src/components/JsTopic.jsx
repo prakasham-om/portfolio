@@ -98,7 +98,7 @@ const CodeEditor = () => {
 
               {/* Output Below Each Code Editor */}
               {topic.output && (
-                <div className="mt-4 p-2 bg-gray-600 rounded-md text-white">
+                <div className="mt-4 p-2 bg-gray-600 rounded-md text-yellow-400 overflow-hidden">
                   <h3 className="text-lg">Output:</h3>
                   <pre>{topic.output}</pre>
                 </div>
