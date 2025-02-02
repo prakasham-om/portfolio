@@ -51,9 +51,9 @@ const CodeEditor = () => {
   const executeCode = (code) => {
     try {
       // Create a new function from the code and execute it
-      const runCode = new Function(code);
+      const runCode = new Function(code); 
       const result = runCode(); // Execute the code
-      setOutput(result);
+      setOutput(result !== undefined ? result : "No output returned.");
     } catch (error) {
       setOutput(`Error: ${error.message}`);
     }
