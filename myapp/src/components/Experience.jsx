@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import cmpImg from '../assets/download.jpeg';  // Example logo
 
 function Experience() {
@@ -25,29 +25,58 @@ function Experience() {
         },
       ],
     },
-    // Add more companies and projects here
+    // Additional companies here
+    {
+      company: "ABC Corp",
+      duration: "May 2020 - Oct 2021",
+      logo: cmpImg,
+      description:
+        "As a Software Engineer at ABC Corp, I contributed to the development of key projects, utilizing technologies like Node.js, React, and MongoDB. I focused on building efficient and scalable solutions for our clients.",
+      projects: [
+        {
+          name: "Internal Dashboard",
+          description:
+            "The Internal Dashboard project aimed at providing real-time analytics and business insights to internal teams. By using data visualization tools, the dashboard simplified decision-making and enhanced productivity.",
+        },
+        {
+          name: "Client Portal",
+          description:
+            "The Client Portal project helped customers track their orders, view analytics, and interact with support. It was developed using React and integrated with backend services to ensure smooth real-time data updates.",
+        },
+      ],
+    },
   ];
 
-  useEffect(() => {
-    const companyInterval = setInterval(() => {
-      setCurrentCompanyIndex((prevIndex) =>
-        prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); // Slide every 5 seconds
+  // Functions to handle manual navigation
+  const nextCompany = () => {
+    setCurrentCompanyIndex((prevIndex) =>
+      prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
+    );
+    setCurrentProjectIndex(0); // Reset project index when company changes
+  };
 
-    const projectInterval = setInterval(() => {
-      setCurrentProjectIndex((prevIndex) =>
-        prevIndex === experiences[currentCompanyIndex].projects.length - 1
-          ? 0
-          : prevIndex + 1
-      );
-    }, 5000); // Slide every 5 seconds
+  const prevCompany = () => {
+    setCurrentCompanyIndex((prevIndex) =>
+      prevIndex === 0 ? experiences.length - 1 : prevIndex - 1
+    );
+    setCurrentProjectIndex(0); // Reset project index when company changes
+  };
 
-    return () => {
-      clearInterval(companyInterval);
-      clearInterval(projectInterval);
-    };
-  }, [currentCompanyIndex, experiences]);
+  const nextProject = () => {
+    setCurrentProjectIndex((prevIndex) =>
+      prevIndex === experiences[currentCompanyIndex].projects.length - 1
+        ? 0
+        : prevIndex + 1
+    );
+  };
+
+  const prevProject = () => {
+    setCurrentProjectIndex((prevIndex) =>
+      prevIndex === 0
+        ? experiences[currentCompanyIndex].projects.length - 1
+        : prevIndex - 1
+    );
+  };
 
   return (
     <section
@@ -55,14 +84,14 @@ function Experience() {
       className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 h-full "
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
-        {/* Company and Project carousel for small devices */}
+        {/* Mobile view with company logo and carousel for projects */}
         <div className="max-w-full sm:max-w-lg w-full bg-gray-600 shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
-          {/* Company Logo and Title */}
+          {/* Company Header */}
           <div className="flex items-center space-x-4">
             <img
               src={experiences[currentCompanyIndex].logo}
               alt={`${experiences[currentCompanyIndex].company} Logo`}
-              className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
+              className="h-16 w-16 rounded-full object-cover"
             />
             <div>
               <h4 className="text-xl font-semibold text-white">
@@ -74,7 +103,7 @@ function Experience() {
             </div>
           </div>
 
-          {/* Job Description */}
+          {/* Company Description */}
           <p className="text-sm text-white leading-relaxed">
             {experiences[currentCompanyIndex].description}
           </p>
@@ -89,7 +118,7 @@ function Experience() {
             </p>
           </div>
 
-          {/* Dot Indicators for the Project Carousel */}
+          {/* Dot Indicators for Project Carousel */}
           <div className="flex justify-center space-x-2 mt-4">
             {experiences[currentCompanyIndex].projects.map((_, index) => (
               <span
@@ -100,41 +129,95 @@ function Experience() {
               ></span>
             ))}
           </div>
+
+          {/* Project Navigation Buttons */}
+          <div className="flex justify-between mt-4">
+            <button
+              onClick={prevProject}
+              className="bg-blue-600 text-white p-2 rounded-full"
+            >
+              &lt;
+            </button>
+            <button
+              onClick={nextProject}
+              className="bg-blue-600 text-white p-2 rounded-full"
+            >
+              &gt;
+            </button>
+          </div>
         </div>
 
-        {/* For medium and above devices, show a single detailed card */}
+        {/* Desktop and Medium view with company logo and full project list */}
         <div className="hidden md:block max-w-7xl w-full bg-white shadow-lg rounded-lg p-8 space-y-8 hover:shadow-2xl transition duration-300">
-          {/* Company Logo and Title */}
-          <div className="flex items-center space-x-6">
-            <img
-              src={experiences[currentCompanyIndex].logo}
-              alt={`${experiences[currentCompanyIndex].company} Logo`}
-              className="h-16 w-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-2xl font-semibold text-gray-800">
-                {experiences[currentCompanyIndex].company}
-              </h4>
-              <p className="text-xl text-gray-600">
-                {experiences[currentCompanyIndex].duration}
-              </p>
+          {/* Company Carousel */}
+          <div className="relative">
+            <div className="flex items-center space-x-6">
+              <img
+                src={experiences[currentCompanyIndex].logo}
+                alt={`${experiences[currentCompanyIndex].company} Logo`}
+                className="h-16 w-16 rounded-full object-cover"
+              />
+              <div>
+                <h4 className="text-2xl font-semibold text-gray-800">
+                  {experiences[currentCompanyIndex].company}
+                </h4>
+                <p className="text-xl text-gray-600">
+                  {experiences[currentCompanyIndex].duration}
+                </p>
+              </div>
+            </div>
+
+            {/* Company Description */}
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {experiences[currentCompanyIndex].description}
+            </p>
+
+            {/* Project Carousel for larger screens */}
+            <div className="space-y-6 mt-6">
+              <h5 className="text-xl font-semibold text-gray-800">Projects</h5>
+
+              {/* Display the current project */}
+              <div>
+                <h6 className="text-lg font-semibold text-gray-800">
+                  {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
+                </h6>
+                <p className="text-md text-gray-600">
+                  {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
+                </p>
+              </div>
+            </div>
+
+            {/* Project Navigation Buttons */}
+            <div className="absolute top-1/2 left-0 right-0 flex justify-between transform -translate-y-1/2">
+              <button
+                onClick={prevProject}
+                className="bg-blue-600 text-white p-2 rounded-full"
+              >
+                &lt;
+              </button>
+              <button
+                onClick={nextProject}
+                className="bg-blue-600 text-white p-2 rounded-full"
+              >
+                &gt;
+              </button>
             </div>
           </div>
 
-          {/* Job Description */}
-          <p className="text-lg text-gray-700 leading-relaxed">
-            {experiences[currentCompanyIndex].description}
-          </p>
-
-          {/* Display all projects in a list for md and above */}
-          <div className="mt-6 space-y-6">
-            <h5 className="text-xl font-semibold text-gray-800">Projects</h5>
-            {experiences[currentCompanyIndex].projects.map((project, index) => (
-              <div key={index}>
-                <h6 className="text-lg font-semibold text-gray-800">{project.name}</h6>
-                <p className="text-md text-gray-600">{project.description}</p>
-              </div>
-            ))}
+          {/* Company Navigation (carousel buttons for companies) */}
+          <div className="flex justify-between mt-6">
+            <button
+              onClick={prevCompany}
+              className="bg-blue-600 text-white p-2 rounded-full"
+            >
+              &lt;
+            </button>
+            <button
+              onClick={nextCompany}
+              className="bg-blue-600 text-white p-2 rounded-full"
+            >
+              &gt;
+            </button>
           </div>
         </div>
       </div>
@@ -143,4 +226,4 @@ function Experience() {
 }
 
 export default Experience;
-              
+            
