@@ -163,11 +163,11 @@ function Experience() {
             </p>
 
             <div>
-              <h5 className="text-xl font-semibold text-gray-800">Projects</h5>
-              <h6 className="text-lg font-semibold text-gray-800">
+              <h5 className="text-xl font-semibold text-blue-700 underline">Projects:</h5>
+              <h6 className="text-lg font-semibold text-white">
                 {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
               </h6>
-              <p className="text-md text-gray-600">
+              <p className="text-md text-white">
                 {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
               </p>
             </div>
