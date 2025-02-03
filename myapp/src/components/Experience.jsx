@@ -134,13 +134,13 @@ function Experience() {
           <div className="flex justify-between ">
             <button
               onClick={prevProject}
-              className="text-white  rounded"
+              className="bg-gray-600 text-white   rounded"
             >
               &lt;
             </button>
             <button
               onClick={nextProject}
-              className=" text-white rounded"
+              className="bg-gay-600 text-white rounded"
             >
               &gt;
             </button>
@@ -188,38 +188,39 @@ function Experience() {
             </div>
 
             {/* Project Navigation Buttons */}
-            <div className="absolute top-1/2 left-0 right-0 flex justify-between transform -translate-y-1/2">
+            <div className="absolute top-1/2 left-0 right-0 flex gap-4 justify-center transform -translate-y-1/2">
               <button
                 onClick={prevProject}
-                className="bg-blue-600 text-white p-2 rounded-full"
+                className="bg-gray-600 text-white p-2  rounded-full"
               >
                 &lt;
               </button>
+              Project
               <button
                 onClick={nextProject}
-                className="bg-blue-600 text-white p-2 rounded-full"
+                className="bg-gray-600 text-white p-2 rounded-full"
               >
                 &gt;
               </button>
             </div>
           </div>
 
-          {/* Company Navigation (carousel buttons for companies) */}
-          <div className="flex justify-between mt-6">
+        </div>
+        {/* Company Navigation (carousel buttons for companies) */}
+          <div className="flex justify-center mt-2">
             <button
               onClick={prevCompany}
-              className="bg-blue-600 text-white p-2 rounded-full"
+              className="bg-gray-600 text-white p-2 rounded-full"
             >
               &lt;
             </button>
             <button
               onClick={nextCompany}
-              className="bg-blue-600 text-white p-2 rounded-full"
+              className="bg-gray-600 text-white p-2 rounded-full"
             >
               &gt;
             </button>
           </div>
-        </div>
       </div>
     </section>
   );
