@@ -3,7 +3,6 @@ import cmpImg from '../assets/download.jpeg';  // Example logo
 import images from '../assets/images.jpeg';
 
 function Experience() {
-  const [currentCompanyIndex, setCurrentCompanyIndex] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   const experiences = [
@@ -11,8 +10,7 @@ function Experience() {
       company: "ENSS TECHNOLOGIES PVT LTD.",
       duration: "Nov 2021 - Present",
       logo: cmpImg,
-      description:
-        "FullStack Developer(MERN && MEAN)",
+      description: "FullStack Developer(MERN && MEAN)",
       projects: [
         {
           name: "KYP (Know Your Provider)",
@@ -30,8 +28,7 @@ function Experience() {
       company: "Greet lab",
       duration: "Jan 2021 - Oct 2021",
       logo: images,
-      description:
-        "SOFTWARE ENGINEER INTERN",
+      description: "SOFTWARE ENGINEER INTERN",
       projects: [
         {
           name: "Internal Dashboard",
@@ -47,23 +44,9 @@ function Experience() {
     },
   ];
 
-  const nextCompany = () => {
-    setCurrentCompanyIndex((prevIndex) =>
-      prevIndex === experiences.length - 1 ? 0 : prevIndex + 1
-    );
-    setCurrentProjectIndex(0);
-  };
-
-  const prevCompany = () => {
-    setCurrentCompanyIndex((prevIndex) =>
-      prevIndex === 0 ? experiences.length - 1 : prevIndex - 1
-    );
-    setCurrentProjectIndex(0);
-  };
-
   const nextProject = () => {
     setCurrentProjectIndex((prevIndex) =>
-      prevIndex === experiences[currentCompanyIndex].projects.length - 1
+      prevIndex === experiences[0].projects.length - 1
         ? 0
         : prevIndex + 1
     );
@@ -72,7 +55,7 @@ function Experience() {
   const prevProject = () => {
     setCurrentProjectIndex((prevIndex) =>
       prevIndex === 0
-        ? experiences[currentCompanyIndex].projects.length - 1
+        ? experiences[0].projects.length - 1
         : prevIndex - 1
     );
   };
@@ -83,14 +66,14 @@ function Experience() {
       className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 min-h-screen"
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12 gap-4">
-        {/* Unified View */}
-        <div className="w-full flex flex-col sm:flex-row gap-6 md:hidden">
+        {/* Desktop Layout: Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {experiences.map((experience, companyIndex) => (
             <div
               key={companyIndex}
-              className="flex-shrink-0 w-full sm:w-64 bg-gray-600 shadow-lg rounded-lg p-6 space-y-4 hover:shadow-2xl transition duration-300"
+              className="flex flex-col bg-gray-600 shadow-lg rounded-lg p-6 space-y-4 hover:shadow-2xl transition duration-300"
             >
-              <div className="flex items-center mix-blend-overlay space-x-4">
+              <div className="flex items-center space-x-4">
                 <img
                   src={experience.logo}
                   alt={`${experience.company} Logo`}
@@ -137,78 +120,10 @@ function Experience() {
             </div>
           ))}
         </div>
-
-        {/* Desktop and Larger Screens */}
-        <div className="hidden md:flex md:flex-col space-x-6 max-w-7xl w-full bg-gray-600 shadow-lg rounded-lg p-8 hover:shadow-2xl transition duration-300">
-          <div className="flex items-center space-x-6 w-1/3">
-            <img
-              src={experiences[currentCompanyIndex].logo}
-              alt={`${experiences[currentCompanyIndex].company} Logo`}
-              className="h-16 w-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-2xl font-semibold text-white">
-                {experiences[currentCompanyIndex].company}
-              </h4>
-              <p className="text-xl text-white">
-                {experiences[currentCompanyIndex].duration}
-              </p>
-            </div>
-          </div>
-
-          {/* Company Description and Project Section */}
-          <div className="w-2/3 space-y-8">
-            <p className="text-lg text-white leading-relaxed">
-              {experiences[currentCompanyIndex].description}
-            </p>
-
-            <div>
-              <h5 className="text-xl font-semibold text-blue-700 underline">Projects:</h5>
-              <h6 className="text-lg font-semibold text-white">
-                {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
-              </h6>
-              <p className="text-md text-white">
-                {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
-              </p>
-            </div>
-
-            {/* Project Navigation */}
-            <div className="flex justify-between mt-4">
-              <button
-                onClick={prevProject}
-                className="bg-gray-600 text-white p-2 rounded-full"
-              >
-                &lt;
-              </button>
-              <button
-                onClick={nextProject}
-                className="bg-gray-600 text-white p-2 rounded-full"
-              >
-                &gt;
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Company Pagination for Small Screens */}
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={prevCompany}
-            className="bg-gray-600 text-white p-2 rounded-full"
-          >
-            &lt;
-          </button>
-          <button
-            onClick={nextCompany}
-            className="bg-gray-600 text-white p-2 rounded-full"
-          >
-            &gt;
-          </button>
-        </div>
       </div>
     </section>
   );
 }
 
 export default Experience;
-                           
+                
