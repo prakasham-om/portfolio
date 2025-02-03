@@ -81,7 +81,7 @@ function Experience() {
       id="experience"
       className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 min-h-screen"
     >
-      <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
+      <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12 gap-4">
         {/* Mobile View with Scrollable Cards */}
         <div className="w-full sm:w-full overflow-x-auto flex space-x-6">
           {experiences.map((experience, companyIndex) => (
