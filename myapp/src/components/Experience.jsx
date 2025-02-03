@@ -104,14 +104,15 @@ function Experience() {
                 </div>
               </div>
 
-              <p className="text-sm text-white leading-relaxed">
+              <p className="text-xl text-white leading-relaxed">
                 {experience.description}
               </p>
 
               {/* Project Section */}
               <div className="mt-4">
-                <h4 className="text-lg font-semibold text-white">
-                  {experience.projects[currentProjectIndex].name}
+                <h3 className="text-bold text-lg underline mb-2">Project:</h3>
+                <h4 className="text-md font-semibold text-white">
+                  {experience.projects[currentProjectIndex].name}:
                 </h4>
                 <p className="text-sm text-white">
                   {experience.projects[currentProjectIndex].description}
