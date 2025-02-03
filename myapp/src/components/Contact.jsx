@@ -59,7 +59,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="p-8 max-w-3xl mx-auto bg-gradient-to-b from-gray-600 to-gray-800 shadow-lg min-h-screen w-full"
+      className="p-8 max-w-3xl mx-auto bg-gradient-to-b from-gray-700 to-gray-800 shadow-lg min-h-screen w-full"
     >
       <h2 className="text-3xl font-semibold mb-6 text-center text-white">Contact Me</h2>
       <p className="mb-6 text-center text-gray-300 flex justify-center items-center space-x-2">
