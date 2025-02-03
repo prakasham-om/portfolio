@@ -16,7 +16,7 @@ function Experience() {
         {
           name: "KYP (Know Your Provider)",
           description:
-            "All-in-one solution designed to streamline the process of screening, enrolling, and monitoring service providers for their eligibility to process claims. It helps organizations efficiently manage provider data, ensuring they meet the necessary requirements for claims submission. The system simplifies the workflow by combining multiple tasks—eligibility checks, enrollment processes, and ongoing monitoring—into one easy-to-use platform. This helps reduce errors, save time, and ensure that only eligible providers are involved in claim processing",
+            "All-in-one solution designed to streamline the process of screening, enrolling, and monitoring service providers for their eligibility to process claims. It helps organizations efficiently manage provider data, ensuring they meet the necessary requirements for claims submission. The system simplifies the workflow by combining multiple tasks—eligibility checks, enrollment processes, and ongoing monitoring—into one easy-to-use platform.",
         },
         {
           name: "Product and Seller Management",
@@ -79,62 +79,66 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 min-h-screen "
+      className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 min-h-screen"
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12">
-        {/* Company Header */}
-        <div className="max-w-full sm:max-w-lg w-full bg-gray-600 shadow-lg rounded-lg p-6 space-y-6 hover:shadow-2xl transition duration-300 md:hidden">
-          <div className="flex items-center space-x-4">
-            <img
-              src={experiences[currentCompanyIndex].logo}
-              alt={`${experiences[currentCompanyIndex].company} Logo`}
-              className="h-16 w-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="text-xl font-semibold text-white">
-                {experiences[currentCompanyIndex].company}
-              </h4>
-              <p className="text-md text-white">
-                {experiences[currentCompanyIndex].duration}
+        {/* Mobile View with Scrollable Cards */}
+        <div className="w-full sm:w-full overflow-x-auto flex space-x-6">
+          {experiences.map((experience, companyIndex) => (
+            <div
+              key={companyIndex}
+              className="flex-shrink-0 w-64 bg-gray-600 shadow-lg rounded-lg p-6 space-y-4 hover:shadow-2xl transition duration-300"
+            >
+              <div className="flex items-center space-x-4">
+                <img
+                  src={experience.logo}
+                  alt={`${experience.company} Logo`}
+                  className="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="text-xl font-semibold text-white">
+                    {experience.company}
+                  </h4>
+                  <p className="text-md text-white">{experience.duration}</p>
+                </div>
+              </div>
+
+              <p className="text-sm text-white leading-relaxed">
+                {experience.description}
               </p>
+
+              {/* Project Section */}
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold text-white">
+                  {experience.projects[currentProjectIndex].name}
+                </h4>
+                <p className="text-sm text-white">
+                  {experience.projects[currentProjectIndex].description}
+                </p>
+              </div>
+
+              {/* Project Navigation */}
+              <div className="flex justify-between mt-4">
+                <button
+                  onClick={prevProject}
+                  className="bg-gray-600 text-white rounded p-2"
+                >
+                  &lt;
+                </button>
+                <button
+                  onClick={nextProject}
+                  className="bg-gray-600 text-white rounded p-2"
+                >
+                  &gt;
+                </button>
+              </div>
             </div>
-          </div>
-
-          {/* Company Description */}
-          <p className="text-sm text-white leading-relaxed">
-            {experiences[currentCompanyIndex].description}
-          </p>
-
-          {/* Project Carousel */}
-          <div className="mt-4">
-            <h4 className="text-lg font-semibold text-white">
-              {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
-            </h4>
-            <p className="text-sm text-white">
-              {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
-            </p>
-          </div>
-
-          {/* Project Navigation Buttons */}
-          <div className="flex justify-between mt-4">
-            <button
-              onClick={prevProject}
-              className="bg-gray-600 text-white rounded p-2"
-            >
-              &lt;
-            </button>
-            <button
-              onClick={nextProject}
-              className="bg-gray-600 text-white rounded p-2"
-            >
-              &gt;
-            </button>
-          </div>
+          ))}
         </div>
 
-        {/* Desktop View */}
-        <div className="hidden md:block max-w-7xl w-full bg-white shadow-lg rounded-lg p-8 space-y-8 hover:shadow-2xl transition duration-300">
-          <div className="flex items-center space-x-6">
+        {/* Desktop and Larger Screens */}
+        <div className="hidden md:flex md:flex-row space-x-6 max-w-7xl w-full bg-white shadow-lg rounded-lg p-8 hover:shadow-2xl transition duration-300">
+          <div className="flex items-center space-x-6 w-1/3">
             <img
               src={experiences[currentCompanyIndex].logo}
               alt={`${experiences[currentCompanyIndex].company} Logo`}
@@ -150,15 +154,14 @@ function Experience() {
             </div>
           </div>
 
-          {/* Company Description */}
-          <p className="text-lg text-gray-700 leading-relaxed">
-            {experiences[currentCompanyIndex].description}
-          </p>
+          {/* Company Description and Project Section */}
+          <div className="w-2/3 space-y-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {experiences[currentCompanyIndex].description}
+            </p>
 
-          {/* Project List for Larger Screens */}
-          <div className="space-y-6 mt-6">
-            <h5 className="text-xl font-semibold text-gray-800">Projects</h5>
             <div>
+              <h5 className="text-xl font-semibold text-gray-800">Projects</h5>
               <h6 className="text-lg font-semibold text-gray-800">
                 {experiences[currentCompanyIndex].projects[currentProjectIndex].name}
               </h6>
@@ -166,27 +169,26 @@ function Experience() {
                 {experiences[currentCompanyIndex].projects[currentProjectIndex].description}
               </p>
             </div>
-          </div>
 
-          {/* Project Navigation Buttons */}
-          <div className="absolute top-1/2 left-0 right-0 flex gap-4 justify-center transform -translate-y-1/2">
-            <button
-              onClick={prevProject}
-              className="bg-gray-600 text-white p-2 rounded-full"
-            >
-              &lt;
-            </button>
-            Project
-            <button
-              onClick={nextProject}
-              className="bg-gray-600 text-white p-2 rounded-full"
-            >
-              &gt;
-            </button>
+            {/* Project Navigation */}
+            <div className="flex justify-between mt-4">
+              <button
+                onClick={prevProject}
+                className="bg-gray-600 text-white p-2 rounded-full"
+              >
+                &lt;
+              </button>
+              <button
+                onClick={nextProject}
+                className="bg-gray-600 text-white p-2 rounded-full"
+              >
+                &gt;
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Company Pagination */}
+        {/* Company Pagination for Small Screens */}
         <div className="flex justify-center mt-4">
           <button
             onClick={prevCompany}
@@ -207,4 +209,4 @@ function Experience() {
 }
 
 export default Experience;
-          
+                  
