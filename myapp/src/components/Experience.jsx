@@ -67,7 +67,7 @@ function Experience() {
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12 gap-4">
         {/* Desktop Layout: Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {experiences.map((experience, companyIndex) => (
             <div
               key={companyIndex}
