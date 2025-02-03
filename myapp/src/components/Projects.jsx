@@ -51,7 +51,7 @@ const ProjectCard = ({ project }) => {
 
         {/* Conditionally render the description */}
         {showDescription && (
-          <p className="text-sm mb-2">{project.description}</p>
+          <p className="text-sm ">{project.description}</p>
         )}
 
         {/* Display the project link if available */}
