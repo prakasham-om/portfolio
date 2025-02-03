@@ -147,10 +147,10 @@ function Experience() {
               className="h-16 w-16 rounded-full object-cover"
             />
             <div>
-              <h4 className="text-2xl font-semibold text-gray-800">
+              <h4 className="text-2xl font-semibold text-white">
                 {experiences[currentCompanyIndex].company}
               </h4>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-white">
                 {experiences[currentCompanyIndex].duration}
               </p>
             </div>
@@ -158,7 +158,7 @@ function Experience() {
 
           {/* Company Description and Project Section */}
           <div className="w-2/3 space-y-8">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-white leading-relaxed">
               {experiences[currentCompanyIndex].description}
             </p>
 
