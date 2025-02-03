@@ -83,7 +83,7 @@ function Experience() {
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12 gap-4">
         {/* Mobile View with Scrollable Cards */}
-        <div className="w-full sm:w-full overflow-x-auto flex space-x-6">
+        <div className="w-full sm:w-full overflow-x-auto flex space-x-6 md-hidden">
           {experiences.map((experience, companyIndex) => (
             <div
               key={companyIndex}
