@@ -67,11 +67,11 @@ function About() {
           I’m Prakash, a passionate software developer with over 3 years of experience in creating modern web applications. My expertise spans across both front-end and back-end development, specializing in **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**.
         </animated.p>
 
-        <animated.p style={fadeIn} className="text-lg leading-relaxed mb-6 max-w-prose">
+        <animated.p style={fadeIn} className="md:text-lg text-sm leading-relaxed mb-6 max-w-prose">
           I believe in crafting scalable and efficient solutions, whether it's optimizing user interfaces, building robust APIs, or deploying apps to the cloud. I'm constantly learning new technologies to stay at the cutting edge and deliver the best outcomes for projects.
         </animated.p>
 
-        <animated.p style={fadeIn} className="text-lg leading-relaxed mb-6">
+        <animated.p style={fadeIn} className="md:text-lg text-sm leading-relaxed mb-6">
           Let's collaborate! I’m always open to new challenges and opportunities to make an impact. Whether you're looking to enhance user experiences or scale your systems, I’d love to work with you to bring ideas to life.
         </animated.p>
       </div>
