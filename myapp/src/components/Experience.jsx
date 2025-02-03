@@ -134,13 +134,13 @@ function Experience() {
           <div className="flex justify-between ">
             <button
               onClick={prevProject}
-              className="bg-transparent text-white  rounded"
+              className="text-white  rounded"
             >
               &lt;
             </button>
             <button
               onClick={nextProject}
-              className="bg-transparent text-white rounded-"
+              className=" text-white rounded"
             >
               &gt;
             </button>
