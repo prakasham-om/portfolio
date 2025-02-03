@@ -12,7 +12,7 @@ function Experience() {
       duration: "Nov 2021 - Present",
       logo: cmpImg,
       description:
-        "As a FullStack Developer specializing in React.js at Terralogic Software Solutions deployed by ENSS TECHNOLOGIES PRIVATE LIMITED, I meticulously design and implement captivating user interfaces, ensuring a seamless and delightful user experience.",
+        "FullStack Developer(MERN && MEAN)",
       projects: [
         {
           name: "KYP (Know Your Provider)",
@@ -31,7 +31,7 @@ function Experience() {
       duration: "Jan 2021 - Oct 2021",
       logo: images,
       description:
-        "As a Software Engineer intern at Greetlab, I learned and contributed to the development of key projects, utilizing technologies like Node.js, React, and MongoDB and collaborating with the Smart team.",
+        "SOFTWARE ENGINEER INTERN",
       projects: [
         {
           name: "Internal Dashboard",
