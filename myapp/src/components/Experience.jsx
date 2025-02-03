@@ -90,7 +90,7 @@ function Experience() {
               key={companyIndex}
               className="flex-shrink-0 w-full sm:w-64 bg-gray-600 shadow-lg rounded-lg p-6 space-y-4 hover:shadow-2xl transition duration-300"
             >
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center mix-blend-overlay space-x-4">
                 <img
                   src={experience.logo}
                   alt={`${experience.company} Logo`}
@@ -139,7 +139,7 @@ function Experience() {
         </div>
 
         {/* Desktop and Larger Screens */}
-        <div className="hidden md:flex md:flex-row space-x-6 max-w-7xl w-full bg-white shadow-lg rounded-lg p-8 hover:shadow-2xl transition duration-300">
+        <div className="hidden md:flex md:flex-col space-x-6 max-w-7xl w-full bg-gray-600 shadow-lg rounded-lg p-8 hover:shadow-2xl transition duration-300">
           <div className="flex items-center space-x-6 w-1/3">
             <img
               src={experiences[currentCompanyIndex].logo}
