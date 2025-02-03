@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cmpImg from '../assets/download.jpeg';  // Example logo
-
+import images from '../assets/images.jpeg'
 function Experience() {
   const [currentCompanyIndex, setCurrentCompanyIndex] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -28,7 +28,7 @@ function Experience() {
     {
       company: "Greet lab",
       duration: "Jan 2021 - Oct 2021",
-      logo: cmpImg,
+      logo: images,
       description:
         "As a Software Engineer intern at Greetlab, I learned and contributed to the development of key projects, utilizing technologies like Node.js, React, and MongoDB and collaborating with the Smart team.",
       projects: [
