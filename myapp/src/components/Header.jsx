@@ -45,7 +45,7 @@ const Header = () => {
           <Link
             to="/blog"
             onClick={() => setActiveLink('blog')}
-            className={`text-lg ${activeLink === 'contact' ? 'text-blue-400' : 'text-white'} hover:text-blue-400 transition-colors`}
+            className={`text-lg ${activeLink === 'blog' ? 'text-blue-400' : 'text-white'} hover:text-blue-400 transition-colors`}
           >
             Blog
           </Link>
