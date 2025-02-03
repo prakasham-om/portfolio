@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cmpImg from '../assets/download.jpeg';  // Example logo
-import images from '../assets/images.jpeg'
+import images from '../assets/images.jpeg';
+
 function Experience() {
   const [currentCompanyIndex, setCurrentCompanyIndex] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -16,12 +17,12 @@ function Experience() {
         {
           name: "KYP (Know Your Provider)",
           description:
-            "All-in-one solution designed to streamline the process of screening, enrolling, and monitoring service providers for their eligibility to process claims. It helps organizations efficiently manage provider data, ensuring they meet the necessary requirements for claims submission. The system simplifies the workflow by combining multiple tasks—eligibility checks, enrollment processes, and ongoing monitoring—into one easy-to-use platform.",
+            "All-in-one solution designed to streamline the process of screening, enrolling, and monitoring service providers for their eligibility to process claims. It helps organizations efficiently manage provider data, ensuring they meet the necessary requirements for claims submission.",
         },
         {
           name: "Product and Seller Management",
           description:
-            "The Product and Seller Management platform streamlines the management of sellers by tracking performance, enhancing communication, and optimizing sales. It simplifies onboarding, monitors seller activity, and provides real-time analytics. The system also manages incentives and ensures compliance, helping businesses boost efficiency and maintain strong seller relationships.",
+            "The Product and Seller Management platform streamlines the management of sellers by tracking performance, enhancing communication, and optimizing sales. It simplifies onboarding, monitors seller activity, and provides real-time analytics.",
         },
       ],
     },
@@ -82,12 +83,12 @@ function Experience() {
       className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-gray-900 to-gray-800 min-h-screen"
     >
       <div className="flex flex-col items-center space-y-6 sm:space-y-8 lg:space-y-12 gap-4">
-        {/* Mobile View with Scrollable Cards */}
-        <div className="w-full sm:w-full overflow-x-auto flex space-x-6 md-hidden">
+        {/* Unified View */}
+        <div className="w-full flex flex-col sm:flex-row gap-6 md:hidden">
           {experiences.map((experience, companyIndex) => (
             <div
               key={companyIndex}
-              className="flex-shrink-0 w-64 bg-gray-600 shadow-lg rounded-lg p-6 space-y-4 hover:shadow-2xl transition duration-300"
+              className="flex-shrink-0 w-full sm:w-64 bg-gray-600 shadow-lg rounded-lg p-6 space-y-4 hover:shadow-2xl transition duration-300"
             >
               <div className="flex items-center space-x-4">
                 <img
@@ -209,4 +210,4 @@ function Experience() {
 }
 
 export default Experience;
-                  
+                           
