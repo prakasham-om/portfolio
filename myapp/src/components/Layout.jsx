@@ -23,7 +23,6 @@ const Layout = () => {
             <Route path="/projects"exact  element={<Projects />} />
             <Route path="/contact" exact element={<Contact />} />
             <Route path="/blog" element={<JsTopic/>}/>
-            <Route path="/*"  element={<About />} />
           </Routes>
         </div>
       </div>
