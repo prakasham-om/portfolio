@@ -1,6 +1,6 @@
 import React from 'react';
 import { animated, useSpring } from 'react-spring';
-import { FaNode, FaJs, FaReact, FaAws, FaAngular,faRust } from 'react-icons/fa';
+import { FaNode, FaJs, FaReact, FaAws, FaAngular,FaRust } from 'react-icons/fa';
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg';
 import resumeM from '../assets/prakash.pdf';
