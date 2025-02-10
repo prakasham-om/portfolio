@@ -1,6 +1,6 @@
 import React from 'react';
 import { animated, useSpring } from 'react-spring';
-import { FaNode, FaJs, FaReact, FaAws, FaAngular } from 'react-icons/fa';
+import { FaNode, FaJs, FaReact, FaAws, FaAngular,faRust } from 'react-icons/fa';
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg';
 import resumeM from '../assets/prakash.pdf';
@@ -50,6 +50,7 @@ function About() {
             <DiMongodb size={60} className="text-green-700 hover:text-green-900 transition duration-300" />
             <FaAws size={60} className="text-orange-500 hover:text-orange-600 transition duration-300" />
             <FaAngular size={60} className="text-red-600 hover:text-red-700 transition duration-300" />
+            <FaRust size={60} className="text-red-600 hover:text-red-700 transition duration-300" />
           </animated.div>
           <p className="text-lg text-yellow-700 mb-4">Full Stack Developer</p>
           <button
@@ -64,7 +65,7 @@ function About() {
       {/* Right side - About text */}
       <div className="flex flex-col justify-center items-center md:items-start  md:text-left w-full md:w-2/3">
         <animated.p style={fadeIn} className="md:text-lg text-sm leading-relaxed mb-4">
-          I’m Prakash, a passionate software developer with over 3 years of experience in creating modern web applications. My expertise spans across both front-end and back-end development, specializing in **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**.
+          I’m Prakash, a passionate software developer with over 3 years of experience in creating modern web applications. My expertise spans across both front-end and back-end development, specializing in **Rust**, **React**, **Node.js**, **Angular**, **MongoDB**, and **AWS**.
         </animated.p>
 
         <animated.p style={fadeIn} className="md:text-lg text-sm leading-relaxed mb-6 max-w-prose">
