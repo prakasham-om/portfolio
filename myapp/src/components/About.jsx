@@ -1,7 +1,7 @@
 import React from 'react';
 import { animated, useSpring } from 'react-spring';
 import { FaNode, FaJs, FaReact, FaAws, FaAngular,FaRust} from 'react-icons/fa';
-import {FaGolang} from 'react-icon/fa6'
+import {FaGolang} from 'react-icons/fa6'
 import { DiMongodb } from "react-icons/di";
 import profile from '../assets/profile.jpeg';
 import resumeM from '../assets/prakash.pdf';
@@ -49,7 +49,7 @@ function About() {
             <FaNode size={60} className="text-green-600 hover:text-green-700 transition duration-300" />
             <FaJs size={60} className="text-yellow-500 hover:text-yellow-600 transition duration-300" />
             <FaRust size={60} className="text-orange-600 hover:text-yellow-600 transition duration-300" />
-            <FaGo size={60} className="text-blue-500 hover:text-yellow-600 transition duration-300"/>
+            <FaGolang size={60} className="text-blue-500 hover:text-yellow-600 transition duration-300"/>
             <DiMongodb size={60} className="text-green-700 hover:text-green-900 transition duration-300" />
             <FaAws size={60} className="text-orange-500 hover:text-orange-600 transition duration-300" />
             <FaAngular size={60} className="text-red-600 hover:text-red-700 transition duration-300" />
