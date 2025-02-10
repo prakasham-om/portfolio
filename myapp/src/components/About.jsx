@@ -47,10 +47,10 @@ function About() {
             <FaReact size={60} className="text-blue-500 hover:text-blue-600 transition duration-300" />
             <FaNode size={60} className="text-green-600 hover:text-green-700 transition duration-300" />
             <FaJs size={60} className="text-yellow-500 hover:text-yellow-600 transition duration-300" />
+            <FaRust size={60} className="text-orange-600 hover:text-yellow-600 transition duration-300" />
             <DiMongodb size={60} className="text-green-700 hover:text-green-900 transition duration-300" />
             <FaAws size={60} className="text-orange-500 hover:text-orange-600 transition duration-300" />
             <FaAngular size={60} className="text-red-600 hover:text-red-700 transition duration-300" />
-            <FaRust size={60} className="text-red-600 hover:text-red-700 transition duration-300" />
           </animated.div>
           <p className="text-lg text-yellow-700 mb-4">Full Stack Developer</p>
           <button
