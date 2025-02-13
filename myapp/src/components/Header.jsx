@@ -6,8 +6,8 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState('home'); // state to track the active link
   return (
     <header className="bg-gray-900 text-white py-4 sticky top-0 z-50 shadow-lg">
-      <div className="px-4 mx-auto flex justify-between items-center max-w-6xl">
-       <GiCarnivalMask  className="text-xl font-signature font-bold text-gradient-to-r from-orange-400 to-orange-700 " />
+      <div className="px-4 mx-auto flex justify-between items-center max-w-6">
+        <GiCarnivalMask className="text-xl font-signature font-bold text-red-600 hover:text-red-800  transition-colors duration-300" />
         {/* Navigation Links */}
       
         <nav className="hidden md:flex space-x-6">
