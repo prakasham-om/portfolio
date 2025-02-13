@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { Link } from 'react-router-dom'; // Use Link if you are using React Router.
-import { GiCarnivalMask } from "react-icons/gi";
+import { GiCarnivalMask } from 'react-icons/gi';
 const Header = () => {
   const [activeLink, setActiveLink] = useState('home'); // state to track the active link
-
   return (
     <header className="bg-gray-900 text-white py-4 sticky top-0 z-50 shadow-lg">
       <div className="px-4 mx-auto flex justify-between items-center max-w-6xl">
        <GiCarnivalMask  className="text-xl font-signature font-bold bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent" />
         {/* Navigation Links */}
+        <GiCarnivalMask/>
         <nav className="hidden md:flex space-x-6">
           <Link
             to="/"
