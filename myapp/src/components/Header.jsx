@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <header className="bg-gray-900 text-white py-4 sticky top-0 z-50 shadow-lg">
       <div className="px-4 mx-auto flex justify-between items-center max-w-6xl">
-       <GiCarnivalMask  className="text-xl font-signature font-bold bg-gradient-to-r from-orange-400 to-orange-700 bg-clip-text text-transparent" />
+       <GiCarnivalMask  className="text-xl font-signature font-bold text-gradient-to-r from-orange-400 to-orange-700 " />
         {/* Navigation Links */}
-        <GiCarnivalMask/>
+      
         <nav className="hidden md:flex space-x-6">
           <Link
             to="/"
