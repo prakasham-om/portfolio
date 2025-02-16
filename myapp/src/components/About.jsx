@@ -47,7 +47,7 @@ function About() {
             alt="Prakash Chandra Sahoo"
             className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-xl"
           />
-          <animated.h3 style={fadeIn} className="text-2xl font-semibold text-indigo-600 mb-1">
+          <animated.h3 style={fadeIn} className="text-3xl font-semibold text-indigo-600 mb-1">
             Prakash Chandra Sahoo
           </animated.h3>
           <animated.div style={iconFade} className="flex justify-center gap-3 mt-1">
@@ -60,7 +60,7 @@ function About() {
             <FaAws size={60} className="text-orange-500 hover:text-orange-600 transition duration-300" />
             <FaAngular size={60} className="text-red-600 hover:text-red-700 transition duration-300" />
           </animated.div>
-          <p className="text-lg text-yellow-700 mb-4">Full Stack Developer</p>
+          <p className="text-lg text-yellow-400 mb-4">Full Stack Developer</p>
           <button
             onClick={downloadCV}
             className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg transform hover:scale-105"
