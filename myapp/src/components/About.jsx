@@ -47,7 +47,7 @@ function About() {
             alt="Prakash Chandra Sahoo"
             className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-xl"
           />
-          <animated.h3 style={fadeIn} className="text-3xl font-semibold text-indigo-600 mb-1">
+          <animated.h3 style={fadeIn} className="text-xl font-semibold text-indigo-600 mb-1">
             Prakash Chandra Sahoo
           </animated.h3>
           <animated.div style={iconFade} className="flex justify-center gap-3 mt-1">
