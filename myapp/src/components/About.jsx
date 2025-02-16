@@ -35,15 +35,21 @@ function About() {
     <section id="about" className="py-16 px-8 md:px-20 bg-gradient-to-r from-gray-800 to-gray-900 text-white min-h-screen flex flex-col md:flex-row items-center justify-center md:space-x-12">
       {/* Left side - Profile Card */}
       <div className="flex justify-center md:justify-start items-center mb-10 md:mb-0 w-full md:w-1/3">
-        <div className="bg-gray-700 text-yellow-800 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out max-w-xs w-full p-6 text-center">
+      <div
+        className="bg-gray-700 text-yellow-600 rounded-xl shadow-lg p-6 text-center max-w-xs w-full hover:scale-105 transform transition-all duration-300 ease-in-out"
+        style={{
+          animation: 'lightingEffect 2s infinite alternate',
+          boxShadow: '0 0 15px 4px rgba(128, 0, 128, 0.7)', // Initial deep purple shadow
+        }}
+      >
           <img
             src={profile}
             alt="Prakash Chandra Sahoo"
             className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-xl"
           />
-          <animated.h2 style={fadeIn} className="text-2xl font-semibold text-indigo-600 mb-1">
+          <animated.h3 style={fadeIn} className="text-2xl font-semibold text-indigo-600 mb-1">
             Prakash Chandra Sahoo
-          </animated.h2>
+          </animated.h3>
           <animated.div style={iconFade} className="flex justify-center gap-3 mt-1">
             <FaReact size={60} className="text-blue-500 hover:text-blue-600 transition duration-300" />
             <FaNode size={60} className="text-green-600 hover:text-green-700 transition duration-300" />
