@@ -60,7 +60,7 @@ const Header = () => {
             <AiFillGithub className="text-2xl" />
           </a>
           <a
-            href="https://www.linkedin.com/in/prakash-sahoo-ba3b942a1/"
+            href="https://www.linkedin.com/in/prakash-chandra-sahoo-ba3b942a1/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition-colors"
